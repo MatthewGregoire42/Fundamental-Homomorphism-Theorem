@@ -7,6 +7,14 @@
 
 \usepackage{natbib}
 \usepackage{graphicx}
+\usepackage{amsthm}
+
+\newcommand{\inv}[1]{#1^{-1}}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
 
 \begin{document}
 
@@ -22,8 +30,72 @@ While taking an undergraduate abstract algebra class, the most confusing topic f
 
 \section{Groups}
 
+First, here are the basic preliminaries we need to start talking about groups.
+
+\theoremstyle{definition}
+\begin{definition}{}
+Let $G$ be a set. A \textbf{binary operation} on $G$ is a function $*: G \times G \to G$.
+\end{definition}
+
+If in $G$, we have $*(a, b) = c$, we often write $a * b = c$. In fact, we can often drop the operation symbol and write this as $ab = c$, if no confusion will result.
 
 
+\theoremstyle{definition}
+\begin{definition}{}
+A \textbf{group} is a set G with a binary operation $*: G \times G \to G$ that satisfies the following properties:
+\begin{itemize}
+    \item There exists an element $e \in G$ such that, for all $a \in G$, $a*e = e*a = a$. Here $e$ is referred to as the \textbf{identity element} for $*$.
+    \item For all $a \in G$, there exists an $\inv{a} \in G$ such that $a*\inv{a} = \inv{a}*a = e$. We call $\inv{a}$ the \textbf{inverse} of $a$.
+    \item For all $a, b, c \in G$, $a * (b * c) = (a * b) * c$. In this case, we say $*$ is an \textbf{associative} operation.
+\end{itemize}
+\end{definition}
 
+In order to tackle the fundamental homomorphism theorem, we need to first build up a litte machinery in order to understand groups. The next few theorems build only from the definition of a group.
+
+\theoremstyle{definition}
+\begin{theorem}
+Let $G$ be a group. Then for all $a, b, c \in G$, $a * b = a * c$ implies that $b = c$, and $b*a = c*a$ also implies $b=c$. These are called the \textbf{left and right cancellation laws}.
+\end{theorem}
+
+\begin{proof}
+Suppose that $a*b = a*c$. We know there exists $\inv{a} \in G$, so therefore:
+
+\begin{center}
+    $\inv{a} * (a*b) = \inv{a} * (a*c)$
+\end{center}
+
+By the associative property:
+
+\begin{center}
+    $(\inv{a} * a) * b = (\inv{a} * a) * c$
+\end{center}
+
+By definition of $\inv{a}$:
+
+\begin{center}
+    $e * b = e * c$
+\end{center}
+
+And finally, by definition of $e$, we have $b = c$. Similarly, if $b*a = c*a$, then $(b*a)*\inv{a} = (c*a)*\inv{a}$. Therefore $b*(a*\inv{a}) = c*(a*\inv{a})$, and $b*e = c*e$, or $b = c$.
+
+\end{proof}
+
+\theoremstyle{definition}
+\begin{theorem}
+Let $G$ be a group. There is a unique element $e \in G$ such that $e*a = a*e = a$ for all $a \in G$. Similarly, for $a \in G$, there is a unique element $\inv{a} \in G$ such that $a*\inv{a} = \inv{a}*a = e$.
+\end{theorem}
+
+\begin{proof}
+Suppose that $e$ and $e'$ are both elements of $G$ with the given property. Then we have $e = e*e'$, using $e'$ as the identity. But we also have $e*e' = e'$, using $e$ as the identity. Therefore $e = e'$.
+
+Now let $a \in G$. If $a*\inv{a} = \inv{a} = e$, and also $a*\inv{\tilde{a}} = \inv{\tilde{a}}*a = e$, then we have:
+
+\begin{center}
+    $a*\inv{a} = a*{\inv{\tilde{a}}}$
+\end{center}
+
+And by cancellation, $\inv{a} = \inv{\tilde{a}}$.
+
+\end{proof}
 
 \end{document}
