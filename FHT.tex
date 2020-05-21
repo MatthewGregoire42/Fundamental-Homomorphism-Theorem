@@ -26,7 +26,7 @@
 \begin{definition}{}}
 {\end{definition}}
 
-\begin{document}
+\begin{document}{12pt}
 
 \maketitle
 
@@ -61,7 +61,7 @@ A \textbf{group} is a set G with a binary operation $*: G \times G \to G$ that s
 In order to tackle the fundamental homomorphism theorem, we need to first build up a litte machinery in order to understand groups. The next few theorems build only from the definition of a group.
 
 \begin{thm}
-Let $G$ be a group. Then for all $a, b, c \in G$, $a * b = a * c$ implies that $b = c$, and $b*a = c*a$ also implies $b=c$. These are called the \textbf{left and right cancellation laws}.
+Let $G$ be a group with a binary operation $*$. Then for all $a, b, c \in G$, $a * b = a * c$ implies that $b = c$, and $b*a = c*a$ also implies $b=c$. These are called the \textbf{left and right cancellation laws}.
 \end{thm}
 
 \begin{proof}
@@ -97,11 +97,44 @@ Suppose that $e$ and $e'$ are both elements of $G$ with the given property. Then
 Now let $a \in G$. If $a*\inv{a} = \inv{a}*a = e$, and also $a*\inv{\tilde{a}} = \inv{\tilde{a}}*a = e$, then we have:
 
 \begin{center}
-    $a*\inv{a} = a*{\inv{\tilde{a}}}$
+    $a*\inv{a} = e = a*{\inv{\tilde{a}}}$
 \end{center}
 
 And by cancellation, $\inv{a} = \inv{\tilde{a}}$.
 
+\end{proof}
+
+\section{Subgroups and Cosets}
+
+From here on out, we'll use multiplicative notation exclusively when discusing group operations. Also, constantly specifying the name of a group's operation can get tedious, so by abuse of notation, we can feel free to refer to a group $G$ by itself, and assume that it has an associated operation that satisfies the group axioms. Since it's still convenient to give this operation a name, we might as well call it multiplication in most cases. For our purposes, this shouldn't cause any confusion.
+
+Subgroups are still a somewhat intuitive topic. The formal definition is below.
+
+\begin{defn}
+Let $G$ be a group, and let $H \subseteq G$. If under the binary operation of $G$, $H$ forms a group, we call $H$ a \textbf{subgroup} of $G$.
+\end{defn}
+
+An important and related concept is closure under a specified binary operation.
+
+\begin{defn}
+Let $*$ be a binary operation of a set $G$, and let $H \subseteq G$. If for all $a, b \in H$, $a*b$ is also in $H$, then $H$ is \textbf{closed under}, or \textbf{has closure under}, the operation $*$.
+\end{defn}
+
+In order for $H$ to be a subgroup of $G$, $H$ needs to satisfy the group axioms. This makes the next theorem feel somewhat tautological, but it provides a methodical way to check if a given subset $H$ is indeed a subgroup of $G$.
+
+\begin{thm}
+Let $G$ be a group, and let $H \subseteq G$. Then $H$ is a subgroup of $G$ if and only if:
+\begin{itemize}
+    \item $e \in H$
+    \item For all $a \in H$, $\inv{a} \in H$. (\textbf{Closure under inverses})
+    \item For all $a, b \in H$, $ab \in H$. (\textbf{Closure under multiplication})
+\end{itemize}
+\end{thm}
+
+\begin{proof}
+Suppose $H$ is a subgroup of $G$. Then the group axioms hold within $H$, so clearly the first two properties hold. The third property follows from how we define a binary operation on $H$ as a map from $H \times H$ to $H$.
+
+Conversely, suppose that the above properties hold for a subset $H$ of $G$. Since we are guaranteed an identity element, and an inverse for every element, we only need to check the associative property. Let $a, b, c \in H$. Then applying the group axioms in $G$, we have $a(bc) = (ab)c$. But this can also be viewed as an equation in $H$, so multiplication is associative within $H$.
 \end{proof}
 
 \end{document}
