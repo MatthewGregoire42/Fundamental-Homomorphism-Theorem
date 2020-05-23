@@ -7,6 +7,7 @@
 
 \usepackage{natbib}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \usepackage{amsthm}
 
 \newcommand{\inv}[1]{#1^{-1}}
@@ -88,7 +89,7 @@ And finally, by definition of $e$, we have $b = c$. Similarly, if $b*a = c*a$, t
 \end{proof}
 
 \begin{thm}
-Let $G$ be a group. There is a unique element $e \in G$ such that $e*a = a*e = a$ for all $a \in G$. Similarly, for $a \in G$, there is a unique element $\inv{a} \in G$ such that $a*\inv{a} = \inv{a}*a = e$.
+Let $G$ be a group. There is a unique element $e \in G$ such that $e*a = a*e = a$ for all $a \in G$. Similarly, for $a \in G$, there is a unique element $\inv{a} \in G$ such that $a*\inv{a} = \inv{a}*a = e$. In addition, $\left(\inv{a}\right)^{-1} = a$.
 \end{thm}
 
 \begin{proof}
@@ -100,13 +101,13 @@ Now let $a \in G$. If $a*\inv{a} = \inv{a}*a = e$, and also $a*\inv{\tilde{a}} =
     $a*\inv{a} = e = a*{\inv{\tilde{a}}}$
 \end{center}
 
-And by cancellation, $\inv{a} = \inv{\tilde{a}}$.
+And by cancellation, $\inv{a} = \inv{\tilde{a}}$. For the last property, we only need to note that $\left(\inv{a}\right)^{-1}$ is (by definition) the unique element in $G$ such that $\left(\inv{a}\right)^{-1} * \inv{a} = \inv{a} * \left(\inv{a}\right)^{-1} = e$. By the equation $a * \inv{a} = \inv{a} * a = e$, we see that this unique element is indeed $a$.
 
 \end{proof}
 
 \section{Subgroups and Cosets}
 
-From here on out, we'll use multiplicative notation exclusively when discusing group operations. Also, constantly specifying the name of a group's operation can get tedious, so by abuse of notation, we can feel free to refer to a group $G$ by itself. When we do this, it's implied that $G$ has an associated operation that satisfies the group axioms. Since it's still convenient to give this operation a name, we might as well call it multiplication in most cases. For our purposes, this shouldn't cause any confusion.
+From here on out, we'll use multiplicative notation exclusively when discusing group operations. Also, constantly specifying the name of a group's operation can get tedious, so by abuse of notation, we can feel free to refer to a group $G$ by itself. When we do this, it's implied that $G$ has an associated operation that satisfies the group axioms. Since it's still convenient to give this operation a name, we might as well call it multiplication in most cases. And finally, since every group operation is associative, we can drop parentheses in any expression for clarity. For our purposes, these notation decisions shouldn't cause any confusion.
 
 Subgroups are still a somewhat intuitive topic. The formal definition is below.
 
@@ -180,7 +181,7 @@ Since $H$ is a subgroup of $G$, we must have $e \in H$, so $H$ is nonempty. Ther
 
 \section{Normal Subgroups}
 
-Normal subgroups may be the first concept introduced here that seems a little unmotivated. As it turns out, normal subgroups are incredibly relevant to homomorphisms. If you feel like you're missing the forest for the trees, understanding the \textit{statement} of a theorem is more important than understanding its proof. Feel free to skip a confusing proof and come back to it later.
+Normal subgroups may be the first concept introduced here that seems a little unmotivated. As it turns out, normal subgroups are incredibly relevant to homomorphisms. If you feel like you're missing the forest for the trees, understanding the \textit{statement} of a theorem is more important than understanding its proof, because we'll be building on these concepts from here on out. Feel free to skip a confusing proof and come back to it later.
 
 \begin{defn}
 Let $H$ be a subgroup of $G$. We call $H$ a \textbf{normal} subgroup of $G$ if
@@ -189,5 +190,33 @@ Let $H$ be a subgroup of $G$. We call $H$ a \textbf{normal} subgroup of $G$ if
 \end{center}
 for all $g \in G$.
 \end{defn}
+
+As it turns out, it doesn't matter much what we take as the definition of a normal subgroup, as the next theorem shows. Textbooks often take any one of the following equivalent characterizations of normal subgroups as the definition.
+
+\begin{thm}
+Let $H$ be a subgroup of $G$. The following are equivalent:
+\begin{itemize}
+\item For all $g \in G$, $gH\inv{g} = H$.
+\item For all $g \in G$ and $h \in H$, $gh\inv{g} \in H$.
+\item For all $g \in G$, $gH = Hg$.
+\end{itemize}
+\end{thm}
+
+\begin{proof}
+First, assume that $gH\inv{g} = H$. then clearly if $gh_1\inv{g} \in gH\inv{g}$, then there exists an $h_2 \in H$ such that $gh_1\inv{g} = h_2$, so the first implication holds.
+
+Now, assume that the second listed property holds. Let $gh \in gH$. We know that there exists an $h' \in H$ such that $gh\inv{g} = h'$. Therefore $gh = h'g \in Hg$, so $gH \subseteq Hg$. Similarly, let $hg \in Hg$. Applying the assumption with the element $\inv{g} \in G$, we know that there exists an $h' \in H$ such that $\inv{g}h\left(\inv{g}\right)^{-1} = \inv{g}hg = h'$. Therefore $hg = h'g \in Hg$, so $Hg \subseteq gH$. This means that $gH = Hg$.
+
+Finally, let $g \in G$, and assume that $gH = Hg$. Therefore:
+\begin{align*}
+    \{gh \,|\, h \in H\} &= \{hg \,|\, h \in H\} \\
+    \{ghg^{-1} \,|\, h \in H\} &= \{hgg^{-1} \,|\, h \in H\} \\
+    \{ghg^{-1} \,|\, h \in H\} &= \{h \,|\, h \in H\} \\
+    gHg^{-1} &= H
+\end{align*}
+
+So our theorem is proven. We can feel free to use these alternate definitions interchangeably.
+
+\end{proof}
 
 \end{document}
