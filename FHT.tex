@@ -21,7 +21,7 @@
 \begin{theorem}}
 {\end{theorem}}
 
-\newenvironment{defn}
+\newenvironment{defn}[1][]
 {\theoremstyle{definition}
 \begin{definition}{}}
 {\end{definition}}
@@ -132,9 +132,50 @@ Let $G$ be a group, and let $H \subseteq G$. Then $H$ is a subgroup of $G$ if an
 \end{thm}
 
 \begin{proof}
-Suppose $H$ is a subgroup of $G$. Then the group axioms hold within $H$, so clearly the first two properties hold. The third property follows from how we define a binary operation on $H$ as a map from $H \times H$ to $H$.
+Suppose $H$ is a subgroup of $G$. Then the group axioms hold within $H$, so clearly the first two properties hold. And if $H$ is a group under the operation of $G$, then this operation is a map from $H \times H$ to $H$. The third property follows from this.
 
 Conversely, suppose that the above properties hold for a subset $H$ of $G$. Since we are guaranteed an identity element, and an inverse for every element, we only need to check the associative property. Let $a, b, c \in H$. Then applying the group axioms in $G$, we have $a(bc) = (ab)c$. But this can also be viewed as an equation in $H$, so multiplication is associative within $H$.
+
 \end{proof}
+
+Subgroups also naturally give rise to a discussion of cosets.
+
+\begin{defn}
+Let $H$ be a subgroup of a group $G$, and let $a \in G$. The set $\{ah \,|\, h \in H\}$, denoted $aH$, is a subset of $G$. We call this the \textbf{left coset} of $H$ containing $a$. Similarly, the set $Ha = \{ha \,|\, h \in H\}$ is called the \textbf{right coset} of $H$ containing $a$.
+\end{defn}
+
+The following theorems and proofs involving left cosets have symmetrical theorems and proofs involving right cosets, so for this document we'll mostly deal with left cosets. Cosets have a number of interesting properties, but proofs about properties of cosets usually aren't illuminating by themselves. Therefore, it's important to have a good intuition for some of their basic properties. We'll give a few of these properties in the following theorems.
+
+\begin{thm}
+Let $H$ be a subgroup of $G$, and let $a, b \in G$. The following are equivalent:
+\begin{itemize}
+\item $a \in bH$
+\item $aH = bH$
+\item $\inv{b}a \in H$
+\end{itemize}
+\end{thm}
+
+\begin{proof}
+
+We'll prove these implications in order. First, suppose $a \in bH$. So $a = bh_1$ for some $h \in H$. Let $ah \in aH$. Then $ah = (bh_1)h = b(h_1 h)$. Because $H$ is a subgroup, $h_1 h \in H$, so $b(h_1 h) \in bH$, meaning that $ah \in bH$, or $aH \subseteq bH$. Now let $bh \in bH$. Note that $b = a \inv{h_1}$. Therefore $bh = (a \inv{h_1})h = a (\inv{h_1}h)$. Again, because $H$ is a subgroup, $\inv{h_1} h \in H$, so $bh \in aH$, and $bH \subseteq aH$. Therefore $aH = bH$.
+
+Now suppose that $aH = bH$. If $ah_1 \in aH$, then there exists an $h_2 \in H$ such that $ah_1 = bh_2$. Multiplying on the left by $\inv{b}$ and on the right by $\inv{h_1}$, we see that $\inv{b}a = h_2 \inv{h_1}$. Because $H$ is a subgroup, we therefore have $\inv{b}a \in H$.
+
+Finally, suppose that $\inv{b}a \in H$. So there exists an $h \in H$ such that $\inv{b}a = h$. Multiplying on the left by $b$, this implies that $a = bh \in bH$, proving the theorem.
+
+\end{proof}
+
+Again, the proof of the above theorem isn't terribly important. The important thing to realize is that, in a loose sense, the equivalent statements above can be ``multiplied by $b$'' to get one of the other forms.
+
+\begin{thm}
+Let $H$ be a subgroup of a group $G$. Then the set of all left cosets of $H$ partition $G$.
+\end{thm}
+
+\begin{proof}
+Since $H$ is a subgroup of $G$, we must have $e \in H$, so $H$ is nonempty. Therefore no left coset of $H$ is empty by construction. Let $a \in G$. Since $e \in H$, we have $ae = a \in aH$, so each element is in at least one coset. Suppose $a \in bH$ and $a \in cH$ for $b, c \in G$. By the above theorem, we therefore have $aH = bH$ and $aH = cH$. Set equality is an equivalence relation, so therefore $bH = cH$. This shows that every element of $G$ is in exactly one left coset of $H$.
+
+\end{proof}
+
+% Maybe add something about Theorem of Lagrange here.
 
 \end{document}
