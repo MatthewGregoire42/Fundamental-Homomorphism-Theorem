@@ -12,22 +12,18 @@
 \usepackage{amssymb}
 
 \newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\extra}{\marginpar{$*$}}
 
 \renewcommand\qedsymbol{$\blacksquare$}
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
 
-\newenvironment{thm}
-{\theoremstyle{definition}
-\begin{theorem}}
-{\end{theorem}}
-
-\newenvironment{defn}[1][]
-{\theoremstyle{definition}
-\begin{definition}{}}
-{\end{definition}}
+\reversemarginpar
 
 \begin{document}
 
@@ -41,31 +37,33 @@
 
 While taking an undergraduate abstract algebra class, the most confusing topic for me was the fundamental homomorphism theorem for groups, otherwise known as the first isomorphism theorem. This result is quite elegant, but looking back I'm shocked at how poorly it was explained in my textbook. This is meant to be a document to build straight up to this theorem from basic definitions.
 
+This document is designed for a reader who has the sole objective of understanding the reasoning behind this theorem, and therefore its scope is narrow. However, we would be missing many fundamental (and beautiful) facts about the basics of  group theory if we focus only on the necessary and sufficient definitions and theorems. Therefore we'll motivate these concepts with several examples, and also present some results that aren't strictly required. \extra The examples are clearly labeled if you don't care to read them, and unnecessary results are marked with a star in the left margin, as shown in this sentence.
+
 \section{Groups}
 
 First, here are the basic preliminaries we need to start talking about groups.
 
-\begin{defn}
+\begin{definition}
 Let $G$ be a set. A \textbf{binary operation} on $G$ is a function $*: G \times G \to G$.
-\end{defn}
+\end{definition}
 
 If in $G$, we have $*(a, b) = c$, we often write $a * b = c$. In fact, we can often drop the operation symbol and write this as $ab = c$, if no confusion will result. For now, we'll continue explicitly writing the operation for clarity.
 
 
-\begin{defn}
+\begin{definition}
 A \textbf{group} is a set G with a binary operation $*: G \times G \to G$ that satisfies the following properties:
 \begin{itemize}
     \item There exists an element $e \in G$ such that, for all $a \in G$, $a*e = e*a = a$. Here $e$ is referred to as the \textbf{identity element} for $*$.
     \item For all $a \in G$, there exists an $\inv{a} \in G$ such that $a*\inv{a} = \inv{a}*a = e$. We call $\inv{a}$ the \textbf{inverse} of $a$.
     \item For all $a, b, c \in G$, $a * (b * c) = (a * b) * c$. In this case, we say $*$ is an \textbf{associative} operation.
 \end{itemize}
-\end{defn}
+\end{definition}
 
 In order to tackle the fundamental homomorphism theorem, we need to first build up a litte machinery in order to understand groups. The next few theorems build only from the definition of a group.
 
-\begin{thm}
+\begin{theorem}
 Let $G$ be a group with a binary operation $*$. Then for all $a, b, c \in G$, $a * b = a * c$ implies that $b = c$, and $b*a = c*a$ also implies $b=c$. These are called the \textbf{left and right cancellation laws}.
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 Suppose that $a*b = a*c$. We know there exists $\inv{a} \in G$, so therefore:
@@ -90,9 +88,9 @@ And finally, by definition of $e$, we have $b = c$. Similarly, if $b*a = c*a$, t
 
 \end{proof}
 
-\begin{thm}
-Let $G$ be a group. There is a unique element $e \in G$ such that $e*a = a*e = a$ for all $a \in G$. Similarly, for $a \in G$, there is a unique element $\inv{a} \in G$ such that $a*\inv{a} = \inv{a}*a = e$. In addition, $\left(\inv{a}\right)^{-1} = a$.
-\end{thm}
+\begin{theorem}
+Let $G$ be a group. There is a unique identity element $e \in G$ such that $e*a = a*e = a$ for all $a \in G$. Similarly, for $a \in G$, there is a unique element $\inv{a} \in G$ such that $a*\inv{a} = \inv{a}*a = e$. In addition, $\left(\inv{a}\right)^{-1} = a$.
+\end{theorem}
 
 \begin{proof}
 Suppose that $e$ and $e'$ are both elements of $G$ with the given property. Then we have $e = e*e'$, using $e'$ as the identity. But we also have $e*e' = e'$, using $e$ as the identity. Therefore $e = e'$.
@@ -107,32 +105,42 @@ And by cancellation, $\inv{a} = \inv{\tilde{a}}$. For the last property, we only
 
 \end{proof}
 
+Now, most operations we're familiar with aren't just associative. They have other nice properties as well. The next few definitions solidify this conceptually.
+
+\begin{definition}
+Let $*$ be a binary operation on a set $A$. \extra If for all $a, b \in A$, we have $a * b$ = $b * a$, then $*$ is a \textbf{commutative} operation.
+\end{definition}
+
+\begin{definition}
+Let $G$ be a group with a binary operation $*$. \extra If $*$ is commutative, then $G$ is an \textbf{abelian group}.
+\end{definition}
+
 \section{Subgroups and Cosets}
 
 From here on out, we'll use multiplicative notation exclusively when discusing group operations. Also, constantly specifying the name of a group's operation can get tedious, so by abuse of notation, we can feel free to refer to a group $G$ by itself. When we do this, it's implied that $G$ has an associated operation that satisfies the group axioms. Since it's still convenient to give this operation a name, we might as well call it multiplication in most cases. And finally, since every group operation is associative, we can drop parentheses in any expression for clarity. For our purposes, these notation decisions shouldn't cause any confusion.
 
 Subgroups are still a somewhat intuitive topic. The formal definition is below.
 
-\begin{defn}
+\begin{definition}
 Let $G$ be a group, and let $H \subseteq G$. If under the binary operation of $G$, $H$ forms a group, we call $H$ a \textbf{subgroup} of $G$.
-\end{defn}
+\end{definition}
 
 An important and related concept is closure under a specified binary operation.
 
-\begin{defn}
+\begin{definition}
 Let $*$ be a binary operation of a set $G$, and let $H \subseteq G$. If for all $a, b \in H$, $a*b$ is also in $H$, then $H$ is \textbf{closed under}, or \textbf{has closure under}, the operation $*$.
-\end{defn}
+\end{definition}
 
 In order for $H$ to be a subgroup of $G$, $H$ needs to satisfy the group axioms. This makes the next theorem feel somewhat tautological, but it provides a methodical way to check if a given subset $H$ is indeed a subgroup of $G$.
 
-\begin{thm}
+\begin{theorem}
 Let $G$ be a group, and let $H \subseteq G$. Then $H$ is a subgroup of $G$ if and only if:
 \begin{itemize}
     \item $e \in H$
     \item For all $a \in H$, $\inv{a} \in H$. (\textbf{Closure under inverses})
     \item For all $a, b \in H$, $ab \in H$. (\textbf{Closure under multiplication})
 \end{itemize}
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 Suppose $H$ is a subgroup of $G$. Then the group axioms hold within $H$, so clearly the first two properties hold. And if $H$ is a group under the operation of $G$, then this operation is a map from $H \times H$ to $H$. The third property follows from this.
@@ -143,20 +151,20 @@ Conversely, suppose that the above properties hold for a subset $H$ of $G$. Sinc
 
 Subgroups also naturally give rise to a discussion of cosets.
 
-\begin{defn}
+\begin{definition}
 Let $H$ be a subgroup of a group $G$, and let $a \in G$. The set $\{ah \,|\, h \in H\}$, denoted $aH$, is a subset of $G$. We call this the \textbf{left coset} of $H$ containing $a$. Similarly, the set $Ha = \{ha \,|\, h \in H\}$ is called the \textbf{right coset} of $H$ containing $a$.
-\end{defn}
+\end{definition}
 
 The following theorems and proofs involving left cosets have symmetrical theorems and proofs involving right cosets, so for this document we'll mostly deal with left cosets. Cosets have a number of interesting properties, but proofs about properties of cosets usually aren't illuminating by themselves. Therefore, it's important to have a good intuition for some of their basic properties. We'll give a few of these properties in the following theorems.
 
-\begin{thm}
+\begin{theorem}
 Let $H$ be a subgroup of $G$, and let $a, b \in G$. The following are equivalent:
 \begin{itemize}
 \item $a \in bH$
 \item $aH = bH$
 \item $\inv{b}a \in H$
 \end{itemize}
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 
@@ -170,9 +178,9 @@ Finally, suppose that $\inv{b}a \in H$. So there exists an $h \in H$ such that $
 
 Again, the proof of the above theorem isn't terribly important. The important thing to realize is that, in a loose sense, the equivalent statements above can be ``multiplied by $b$'' to get one of the other forms.
 
-\begin{thm}
+\begin{theorem}
 Let $H$ be a subgroup of a group $G$. Then the set of all left cosets of $H$ partition $G$.
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 Since $H$ is a subgroup of $G$, we must have $e \in H$, so $H$ is nonempty. Therefore no left coset of $H$ is empty by construction. Let $a \in G$. Since $e \in H$, we have $ae = a \in aH$, so each element is in at least one coset. Suppose $a \in bH$ and $a \in cH$ for $b, c \in G$. By the above theorem, we therefore have $aH = bH$ and $aH = cH$. Set equality is an equivalence relation, so therefore $bH = cH$. This shows that every element of $G$ is in exactly one left coset of $H$.
@@ -185,24 +193,24 @@ Since $H$ is a subgroup of $G$, we must have $e \in H$, so $H$ is nonempty. Ther
 
 Normal subgroups may be the first concept introduced here that seems a little unmotivated. As it turns out, normal subgroups are incredibly relevant to homomorphisms. If you feel like you're missing the forest for the trees, understanding the \textit{statement} of a theorem is more important than understanding its proof, because we'll be building on these concepts from here on out. Feel free to skip a confusing proof and come back to it later.
 
-\begin{defn}
+\begin{definition}
 Let $H$ be a subgroup of $G$. We call $H$ a \textbf{normal} subgroup of $G$ if
 \begin{center}
     $gH\inv{g} = \{gh\inv{g} \,|\, h \in H\} = H$
 \end{center}
 for all $g \in G$.
-\end{defn}
+\end{definition}
 
 As it turns out, it doesn't matter much what we take as the definition of a normal subgroup, as the next theorem shows. Textbooks often take any one of the following equivalent characterizations of normal subgroups as the definition.
 
-\begin{thm}
+\begin{theorem}
 Let $H$ be a subgroup of $G$. The following are equivalent:
 \begin{itemize}
 \item For all $g \in G$, $gH\inv{g} = H$.
 \item For all $g \in G$ and $h \in H$, $gh\inv{g} \in H$.
 \item For all $g \in G$, $gH = Hg$.
 \end{itemize}
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 First, assume that $gH\inv{g} = H$. then clearly if $gh_1\inv{g} \in gH\inv{g}$, then there exists an $h_2 \in H$ such that $gh_1\inv{g} = h_2$, so the first implication holds.
@@ -225,13 +233,13 @@ So our theorem is proven. We can feel free to use these alternate definitions in
 
 Now that we have a good understanding of ways to classify group structures, we'd like to have some way to relate the structure of one group to the structure of another. Homomorphisms are exactly the tool we need.
 
-\begin{defn}
+\begin{definition}
 Let $G$ and $G'$ be groups. A \textbf{homomorphism} between $G$ and $G'$ is a function $\phi: G \to G'$ such that
 \begin{equation*}
     \phi(ab) = \phi(a)\phi(b)
 \end{equation*}
 for all $a, b \in G$.
-\end{defn}
+\end{definition}
 
 The important thing to realize here is that the multiplication on the left-hand side is happening within $G$, and the multiplication on the right-hand side is happening within $G'$. If we explicitly write these group operations as $*$ and $\star$, respectively, the homomorphism property above can be written as
 
@@ -241,7 +249,7 @@ The important thing to realize here is that the multiplication on the left-hand 
 
 The next theorems will show a few ways in which the structure of $G$ is mapped onto the structure of $G'$ under a homomorphism.
 
-\begin{thm}
+\begin{theorem}
 Let $G$ and $G'$ be groups, and let $\phi: G \to G'$ be a homomorphism. Then the following hold:
 \begin{itemize}
     \item If $e$ and $e'$ are the respective identities for $G$ and $G'$, then $\phi(e) = e'$.
@@ -249,7 +257,7 @@ Let $G$ and $G'$ be groups, and let $\phi: G \to G'$ be a homomorphism. Then the
     \item If $H$ is a subgroup of $G$, then $\phi(H)$ is a subgroup of $G'$.
     \item If $H'$ is a subgroup of $G'$, then $\inv{\phi}(H')$ is a subgroup of $G$.
 \end{itemize}
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 Let $a \in G$. By our group axioms and application of the homomorphism property, we have:
@@ -281,23 +289,23 @@ Finally, let $H'$ be a subgroup of $G'$. We need to show that $\inv \phi (H')$ i
 
 Great! So we can see that homomorphisms (loosely speaking) take identities to identities, inverses to inverses, and subgroups to subgroups. There's in fact a stricter kind of structure-preserving map between groups, described in the definition below.
 
-\begin{defn}
+\begin{definition}
 Let $G$ and $G'$ be groups. We say a map $\phi: G \to G'$ is a \textbf{group isomorphism} if it is a homomorphism, and is a bijection.
-\end{defn}
+\end{definition}
 
 If we can find an isomorphism between two groups, then their structures are actually completely identical. The only difference between them is the names of the elements. For now, note that an isomorphism must be injective, but this need not be the case for homomorphisms. In particular, more than one element of $G$ may be mapped to the identity of $G'$. This concept is important enough that it warrants a definition.
 
-\begin{defn}
+\begin{definition}
 Let $\phi: G \to G'$ be a group homomorphism. The set
 \begin{equation*}
     \{g \in G \,|\, \phi(g) = e'\}
 \end{equation*}
 is called the \textbf{kernel} of $\phi$, denoted $\ker \phi$.
-\end{defn}
+\end{definition}
 
-\begin{thm}
+\begin{theorem}
 If $\phi: G \to G'$ is a group homomorphism, then $\ker\phi$ is a normal subgroup of $G$.
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 Clearly $e \in \ker\phi$, because $\phi(e) = e'$. If $a, b \in \ker\phi$, then
