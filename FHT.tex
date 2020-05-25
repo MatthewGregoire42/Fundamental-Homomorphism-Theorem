@@ -10,8 +10,12 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{indentfirst}
 
 \newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\np}{\;\tilde{+}\;}
+\newcommand{\zn}[1][]{\mathbb{Z}_{#1}}
 \newcommand{\extra}{\marginpar{$*$}}
 
 \renewcommand\qedsymbol{$\blacksquare$}
@@ -58,6 +62,18 @@ A \textbf{group} is a set G with a binary operation $*: G \times G \to G$ that s
     \item For all $a, b, c \in G$, $a * (b * c) = (a * b) * c$. In this case, we say $*$ is an \textbf{associative} operation.
 \end{itemize}
 \end{definition}
+
+\begin{example}
+The integers $\z$ under the usual addition ($+$) form a group. The element $0$ acts as the identity, and for any $a \in \z$, $-a$ acts as its additive inverse. Addition is associative, so this is indeed a group.
+\end{example}
+
+\begin{example}
+The integers $\zn[n]$ of remainders modulo $n$ also form a group under addition. We'll be pedantically formal here for the sake of demonstrating the group axioms. The elements of $\zn[n]$ are defined as the integers $x$ such that $0 \leq x < n$, and addition within $\zn[n]$, for now given the symbol $\tilde +$, is defined as follows: if $a + b = nq + r$ in $\z$ by the division algorithm, then $a \np b = r$. Since $0 \leq r < n$, this is also an element of $\zn[n]$, so this is a well-defined binary operation.
+
+$0$ is again the identity, because $a + 0 = 0 + a = n\cdot 0 + a$, so $a \np 0 = 0 \np a = a$. Also, the equation $a + (n-a) = (n-a) + a = n\cdot 1 + 0$ shows that $n-a$ is the inverse of $a$. Finally, to show associativity, just note that $a + (b + c) = (a + b) + c$ is true for any integers $a$, $b$, and $c$, so therefore adding any elements $a, b, c \in \zn[n]$ must yield the same remainder.
+\end{example}
+
+Whew! Most of the time there's no need to be that formal. The groups $\zn[n]$ are rather intuitive, so there's no need to get bogged down in this formalism. The real punchline is that we now have two examples of different groups, which will be useful throughout the rest of this document.
 
 In order to tackle the fundamental homomorphism theorem, we need to first build up a litte machinery in order to understand groups. The next few theorems build only from the definition of a group.
 
@@ -114,6 +130,10 @@ Let $*$ be a binary operation on a set $A$. \extra If for all $a, b \in A$, we h
 \begin{definition}
 Let $G$ be a group with a binary operation $*$. \extra If $*$ is commutative, then $G$ is an \textbf{abelian group}.
 \end{definition}
+
+\begin{example}
+The familiar properties of integer addition show that $\z$ and $\zn[n]$ for any $n$ are abelian groups.
+\end{example}
 
 \section{Subgroups and Cosets}
 
