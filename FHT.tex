@@ -9,9 +9,11 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{amssymb}
 
 \newcommand{\inv}[1]{#1^{-1}}
 
+\renewcommand\qedsymbol{$\blacksquare$}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -216,6 +218,101 @@ Finally, let $g \in G$, and assume that $gH = Hg$. Therefore:
 \end{align*}
 
 So our theorem is proven. We can feel free to use these alternate definitions interchangeably.
+
+\end{proof}
+
+\section{Homomorphisms}
+
+Now that we have a good understanding of ways to classify group structures, we'd like to have some way to relate the structure of one group to the structure of another. Homomorphisms are exactly the tool we need.
+
+\begin{defn}
+Let $G$ and $G'$ be groups. A \textbf{homomorphism} between $G$ and $G'$ is a function $\phi: G \to G'$ such that
+\begin{equation*}
+    \phi(ab) = \phi(a)\phi(b)
+\end{equation*}
+for all $a, b \in G$.
+\end{defn}
+
+The important thing to realize here is that the multiplication on the left-hand side is happening within $G$, and the multiplication on the right-hand side is happening within $G'$. If we explicitly write these group operations as $*$ and $\star$, respectively, the homomorphism property above can be written as
+
+\begin{center}
+    $\phi(a*b) = \phi(a) \star \phi(b)$.
+\end{center}
+
+The next theorems will show a few ways in which the structure of $G$ is mapped onto the structure of $G'$ under a homomorphism.
+
+\begin{thm}
+Let $G$ and $G'$ be groups, and let $\phi: G \to G'$ be a homomorphism. Then the following hold:
+\begin{itemize}
+    \item If $e$ and $e'$ are the respective identities for $G$ and $G'$, then $\phi(e) = e'$.
+    \item For all $a \in G$, $\phi(\inv{a}) = \inv{\phi(a)}$.
+    \item If $H$ is a subgroup of $G$, then $\phi(H)$ is a subgroup of $G'$.
+    \item If $H'$ is a subgroup of $G'$, then $\inv{\phi}(H')$ is a subgroup of $G$.
+\end{itemize}
+\end{thm}
+
+\begin{proof}
+Let $a \in G$. By our group axioms and application of the homomorphism property, we have:
+\begin{equation*}
+    e'\phi(a) = \phi(a) = \phi(ea) = \phi(e)\phi(a)
+\end{equation*}
+Therefore by cancellation, $e' = \phi(e)$.
+
+For the second property, note that $\inv{\phi(a)}$ is the unique element of $G'$ such that $\inv{\phi(a)}\phi(a) = \phi(a)\inv{\phi(a)} = e'$. But we also have the following:
+\begin{equation*}
+    e' = \phi(e) = \phi(a\inv{a}) = \phi(a)\phi(\inv a)
+\end{equation*}
+\begin{equation*}
+    e' = \phi(e) = \phi(\inv a a) = \phi(\inv a)\phi(a)
+\end{equation*}
+
+Therefore we have $\inv{\phi(a)} = \phi(\inv a)$.
+
+Now let $H$ be a subgroup of $G$. First, we know $e \in H$, so therefore $e' = \phi(e) \in \phi(H)$. Let $h', g' \in \phi(H)$, so there exists $h, g \in H$ such that $\phi(h) = h'$ and $\phi(g) = g'$. Because $H$ is a subgroup, $\inv h \in H$, and therefore $\phi(\inv h) = \inv{\phi(h)} = \inv{h'} \in \phi(H)$, so $H$ is closed under inverses. And because $\phi$ is a homomorphism:
+\begin{equation*}
+    h'g' = \phi(h)\phi(g) = \phi(hg)
+\end{equation*}
+
+But $H$ is a subgroup of $G$, so $hg \in H$, which implies that $h'g' \in \phi(H)$. Therefore $\phi(H)$ is a subgroup of $G'$.
+
+Finally, let $H'$ be a subgroup of $G'$. We need to show that $\inv \phi (H')$ is a subgroup of $G$. Since $H'$ is a subgroup, $e' \in H'$, and because $\phi(e) = e'$, we have $e \in \inv \phi(H')$. Let $a, b \in \inv \phi(H')$. Therefore $\phi(a), \phi(b) \in H'$. Because $H'$ is a subgroup, $\inv{\phi(a)} = \phi(\inv a) \in H'$, meaning that $\inv a \in \inv\phi(H')$, so $\inv\phi(H')$ is closed under inverses. We also know that $\phi(a)\phi(b) = \phi(ab) \in H'$. Therefore $ab \in \inv\phi(H')$, so $\inv\phi(H')$ is closed under multiplication, and is therefore a subgroup of $G$.
+
+\end{proof}
+
+Great! So we can see that homomorphisms (loosely speaking) take identities to identities, inverses to inverses, and subgroups to subgroups. There's in fact a stricter kind of structure-preserving map between groups, described in the definition below.
+
+\begin{defn}
+Let $G$ and $G'$ be groups. We say a map $\phi: G \to G'$ is a \textbf{group isomorphism} if it is a homomorphism, and is a bijection.
+\end{defn}
+
+If we can find an isomorphism between two groups, then their structures are actually completely identical. The only difference between them is the names of the elements. For now, note that an isomorphism must be injective, but this need not be the case for homomorphisms. In particular, more than one element of $G$ may be mapped to the identity of $G'$. This concept is important enough that it warrants a definition.
+
+\begin{defn}
+Let $\phi: G \to G'$ be a group homomorphism. The set
+\begin{equation*}
+    \{g \in G \,|\, \phi(g) = e'\}
+\end{equation*}
+is called the \textbf{kernel} of $\phi$, denoted $\ker \phi$.
+\end{defn}
+
+\begin{thm}
+If $\phi: G \to G'$ is a group homomorphism, then $\ker\phi$ is a normal subgroup of $G$.
+\end{thm}
+
+\begin{proof}
+Clearly $e \in \ker\phi$, because $\phi(e) = e'$. If $a, b \in \ker\phi$, then
+\begin{center}
+    $\phi(\inv a) = \inv{\phi(a)} = \inv{e'} = e'$,
+\end{center}
+so $\inv a$ is also in $\ker\phi$. Also, by the homomorphism property,
+\begin{center}
+    $\phi(ab) = \phi(a)\phi(b) = e'e' = e'$,
+\end{center}
+so $\ker\phi$ is a subgroup of $G$. To show that it's normal, let $g \in G$ and $k \in \ker\phi$. Then we have
+\begin{center}
+    $\phi(gk\inv g) = \phi(g)\phi(k)\phi(\inv g) = \phi(g) e' \inv{\phi(g)} = e'$,
+\end{center}
+So $gk\inv g$ is in $\ker\phi$ as well.
 
 \end{proof}
 
