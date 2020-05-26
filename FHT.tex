@@ -26,6 +26,8 @@
 \newtheorem{definition}[theorem]{Definition}
 \theoremstyle{definition}
 \newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{corollary}[theorem]{Corollary}
 
 \reversemarginpar
 
@@ -48,6 +50,7 @@ This document is designed for a reader who has the sole objective of understandi
 First, here are the basic preliminaries we need to start talking about groups.
 
 \begin{definition}
+\label{binaryoperation}
 Let $G$ be a set. A \textbf{binary operation} on $G$ is a function $*: G \times G \to G$.
 \end{definition}
 
@@ -178,6 +181,7 @@ Let $H$ be a subgroup of a group $G$, and let $a \in G$. The set $\{ah \,|\, h \
 The following theorems and proofs involving left cosets have symmetrical theorems and proofs involving right cosets, so for this document we'll mostly deal with left cosets. Cosets have a number of interesting properties, but proofs about properties of cosets usually aren't illuminating by themselves. Therefore, it's important to have a good intuition for some of their basic properties. We'll give a few of these properties in the following theorems.
 
 \begin{theorem}
+\label{cosets}
 Let $H$ be a subgroup of $G$, and let $a, b \in G$. The following are equivalent:
 \begin{itemize}
 \item $a \in bH$
@@ -196,7 +200,17 @@ Finally, suppose that $\inv{b}a \in H$. So there exists an $h \in H$ such that $
 
 \end{proof}
 
-Again, the proof of the above theorem isn't terribly important. The important thing to realize is that, in a loose sense, the equivalent statements above can be ``multiplied by $b$'' to get one of the other forms.
+Again, the proof of the above theorem isn't terribly important. The important thing to realize is that, in a loose sense, the equivalent statements above can be ``multiplied by $b$'' to get one of the other forms. Also, from this we immediately have the following.
+
+\begin{corollary}
+\label{cosetcorollary}
+Let $h \in H$. Then $hH = H$.
+\end{corollary}
+
+\begin{proof}
+First, we immediately see that $eH = \{eh \,|\, h \in H\} = H$. Therefore, taking $a=h$ and $b=e$ in the preceding theorem, we're given the first bulleted property. Therefore the second property holds, and $hH = eH = H$.
+
+\end{proof}
 
 \begin{theorem}
 Let $H$ be a subgroup of a group $G$. Then the set of all left cosets of $H$ partition $G$.
@@ -251,7 +265,7 @@ So our theorem is proven. We can feel free to use these alternate definitions in
 
 \section{Homomorphisms}
 
-Now that we have a good understanding of ways to classify group structures, we'd like to have some way to relate the structure of one group to the structure of another. Homomorphisms are exactly the tool we need.
+Now that we have a good understanding of ways to classify group structures, we'd like to have some way to relate the structure of one group to the structure of another. Homomorphisms are exactly the tool we need. 
 
 \begin{definition}
 Let $G$ and $G'$ be groups. A \textbf{homomorphism} between $G$ and $G'$ is a function $\phi: G \to G'$ such that
@@ -341,6 +355,61 @@ so $\ker\phi$ is a subgroup of $G$. To show that it's normal, let $g \in G$ and 
     $\phi(gk\inv g) = \phi(g)\phi(k)\phi(\inv g) = \phi(g) e' \inv{\phi(g)} = e'$,
 \end{center}
 So $gk\inv g$ is in $\ker\phi$ as well.
+
+\end{proof}
+
+\section{Factor Groups}
+
+At this point, all of the concepts we've defined start to come together. First, we need just a little more machinery to operate on cosets.
+
+\begin{theorem}
+Let $H$ be a subgroup of $G$, and consider two left cosets $aH$ and $bH$ of $H$. Then the operation $(aH)(bH) = (ab)H$ is well-defined if and only if $H$ is a normal subgroup.
+\end{theorem}
+
+Before proving this, let's think about what we need to show. Left coset multiplication, which is a new operation on cosets, is well-defined as a binary operation if and only if it satisfies definition \ref{binaryoperation}. That is, it maps each pair of left cosets to a \textit{unique} corresponding coset. Recall that $aH = cH$ is equivalent to $c \in aH$ by Theorem \ref{cosets}. Therefore, left coset multiplication is well-defined if and only if, for all $ah_1 \in aH$ and $bh_2 \in bH$,
+
+\begin{center}
+    $(aH)(bH) = (ah_1H)(bh_2H) = (ab)H = (ah_1bh_2)H$.
+\end{center}
+
+With this reformulation, we can now proceed to the proof.
+
+\begin{proof}
+
+Assume that the operation is well-defined. We want to show that $H$ is normal. Let $a \in G$. We'll show that $aH = Ha$.
+
+Let $x \in aH$, so $xH = aH$. Computing with our operation, which by assumption is well-defined, we have
+
+\begin{center}
+    $(xH)(\inv a H) = (x\inv a)H$.
+\end{center}
+
+But we could also compute the same product with different representatives, as the following.
+
+\begin{center}
+    $(aH)(\inv a H) = (a \inv a)H = eH = H$
+\end{center}
+
+Therefore $(x\inv a)H = H$. Using the first bulleted property of Theorem \ref{cosets}, this implies that $x\inv a \in H$, so there exists an $h \in H$ such that $x\inv a = h$, or $x = ha \in Ha$. Therefore $aH \subseteq Ha$.
+
+Similarly, let $x \in Ha$. By the same reasoning, we have:
+
+\begin{align*}
+    (H\inv a)(Hx) &= (H\inv a)(Ha) \\
+    H(\inv a x) &= H \\
+\end{align*}
+
+Therefore $\inv a x = h$ for some $h \in H$, which means that $x = ah \in aH$, so $Ha \subseteq aH$. Therefore $aH = Ha$, and $H$ is normal.
+
+Conversely, suppose that $H$ is normal. We need to show that coset multiplication is well-defined. Let $aH$ and $bH$ be cosets, and let $ah_1 \in aH$ and $ah_2 \in bH$. Then our operation states that $(ah_1)H(bh_2)H = (ah_1bh_2)H$. Because $H$ is normal, we know that $Hb = bH$, so $h_1 b = b h_3$ for some $h_3 \in H$. Therefore, $a\left(h_1b\right) h_2 = ab h_3 h_2$. So we have:
+
+\begin{align*}
+    \left(ah_1 H\right)\left(bh_2 H\right) &= \left(ah_1bh_2 H\right) \\
+    &= ab\left(h_3 h_2\right)H \\
+    &= ab H
+\end{align*}
+
+So coset multiplication doesn't depend on choices of representatives, and is therefore well-defined.
 
 \end{proof}
 
