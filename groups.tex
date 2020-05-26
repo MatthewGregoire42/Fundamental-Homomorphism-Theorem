@@ -19,8 +19,10 @@ A \textbf{group} is a set G with a binary operation $*: G \times G \to G$ that s
 \end{itemize}
 \end{definition}
 
+We'll give a few examples of groups to get a feel for their structure.
+
 \begin{example}
-The integers $\z$ under the usual addition ($+$) form a group. The element $0$ acts as the identity, and for any $a \in \z$, $-a$ acts as its additive inverse. Addition is associative, so this is indeed a group.
+The integers $\z$ under the usual addition ($+$) form a group. The element $0$ acts as the identity, and for any $a \in \z$, $-a$ acts as its additive inverse. Addition is associative, so this is indeed a group. For similar reasons, the sets $\mathbb{Q}$, $\mathbb{R}$, and $\mathbb{C}$ are also groups under addition.
 \end{example}
 
 \begin{example}
@@ -29,7 +31,7 @@ The integers $\zn[n]$ of remainders modulo $n$ also form a group under addition.
 $0$ is again the identity, because $a + 0 = 0 + a = n\cdot 0 + a$, so $a \np 0 = 0 \np a = a$. Also, the equation $a + (n-a) = (n-a) + a = n\cdot 1 + 0$ shows that $n-a$ is the inverse of $a$. Finally, to show associativity, just note that $a + (b + c) = (a + b) + c$ is true for any integers $a$, $b$, and $c$, so therefore adding any elements $a, b, c \in \zn[n]$ must yield the same remainder.
 \end{example}
 
-Whew! Most of the time there's no need to be that formal. The groups $\zn[n]$ are rather intuitive, so there's no need to get bogged down in this formalism. The real punchline is that we now have two examples of different groups, which will be useful throughout the rest of this document.
+Whew! Most of the time there's no need to be that formal. The groups $\zn[n]$ are rather intuitive, so there's no need to get bogged down in this formalism. The real punchline is that this set of numbers is a group, and operating within $\zn[n]$ should naturally feel like operating on congruence classes of integers modulo $n$.
 
 In order to tackle the fundamental homomorphism theorem, we need to first build up a litte machinery in order to understand groups. The next few theorems build only from the definition of a group.
 

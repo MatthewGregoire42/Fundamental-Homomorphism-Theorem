@@ -13,6 +13,7 @@ for all $g \in G$.
 As it turns out, it doesn't matter much what we take as the definition of a normal subgroup, as the next theorem shows. Textbooks often take any one of the following equivalent characterizations of normal subgroups as the definition.
 
 \begin{theorem}
+\label{normaldefs}
 Let $H$ be a subgroup of $G$. The following are equivalent:
 \begin{itemize}
 \item For all $g \in G$, $gH\inv{g} = H$.
@@ -37,3 +38,7 @@ Finally, let $g \in G$, and assume that $gH = Hg$. Therefore:
 So our theorem is proven. We can feel free to use these alternate definitions interchangeably.
 
 \end{proof}
+
+\begin{example}
+Any subgroup of an abelian group is normal. If $H$ is a subgroup of an abelian group $G$, then let $h \in H$ and $g \in G$. We see that $gh\inv g = g \inv g h = eh = h \in H$, so by the second property of Theorem \ref{normaldefs}, $H$ is normal. In particular, this shows that all subgroups of $\z$ and $\zn[n]$ for any $n \in \z^+$ are normal.
+\end{example}
