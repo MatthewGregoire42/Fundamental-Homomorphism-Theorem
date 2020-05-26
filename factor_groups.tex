@@ -67,3 +67,13 @@ Since $N$ is a normal subgroup of $G$, coset multiplication is well-defined. Let
 So associativity in $G/N$ follows from associativity in $G$. Therefore $G/N$ is a group.
 
 \end{proof}
+
+Finally, let's connect the idea of a factor group to homomorphisms from the previous section.
+
+\begin{theorem}
+Let $G$ be a group with a normal subgroup $N$, and let $\phi: G \to G/N$ be defined by $\phi(a) = aN$. Then $\phi$ is a homomorphism, sometimes called the \textit{natural} or \textit{canonical} homomorphism between these groups.
+\end{theorem}
+
+\begin{proof}
+Let $a, b \in G$. Because $N$ is normal, coset multiplication is well-defined. Therefore $\phi(ab) = abN = (aN)(bN) = \phi(a)\phi(b)$, so the homomorphism property holds.
+\end{proof}
