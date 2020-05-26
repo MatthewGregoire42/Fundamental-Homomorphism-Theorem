@@ -1,0 +1,39 @@
+\section{Normal Subgroups}
+
+Normal subgroups may be the first concept introduced here that seems a little unmotivated. As it turns out, normal subgroups are incredibly relevant to homomorphisms. If you feel like you're missing the forest for the trees, understanding the \textit{statement} of a theorem is more important than understanding its proof, because we'll be building on these concepts from here on out. Feel free to skip a confusing proof and come back to it later.
+
+\begin{definition}
+Let $H$ be a subgroup of $G$. We call $H$ a \textbf{normal} subgroup of $G$ if
+\begin{center}
+    $gH\inv{g} = \{gh\inv{g} \,|\, h \in H\} = H$
+\end{center}
+for all $g \in G$.
+\end{definition}
+
+As it turns out, it doesn't matter much what we take as the definition of a normal subgroup, as the next theorem shows. Textbooks often take any one of the following equivalent characterizations of normal subgroups as the definition.
+
+\begin{theorem}
+Let $H$ be a subgroup of $G$. The following are equivalent:
+\begin{itemize}
+\item For all $g \in G$, $gH\inv{g} = H$.
+\item For all $g \in G$ and $h \in H$, $gh\inv{g} \in H$.
+\item For all $g \in G$, $gH = Hg$.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+First, assume that $gH\inv{g} = H$. then clearly if $gh_1\inv{g} \in gH\inv{g}$, then there exists an $h_2 \in H$ such that $gh_1\inv{g} = h_2$, so the first implication holds.
+
+Now, assume that the second listed property holds. Let $gh \in gH$. We know that there exists an $h' \in H$ such that $gh\inv{g} = h'$. Therefore $gh = h'g \in Hg$, so $gH \subseteq Hg$. Similarly, let $hg \in Hg$. Applying the assumption with the element $\inv{g} \in G$, we know that there exists an $h' \in H$ such that $\inv{g}h\left(\inv{g}\right)^{-1} = \inv{g}hg = h'$. Therefore $hg = h'g \in Hg$, so $Hg \subseteq gH$. This means that $gH = Hg$.
+
+Finally, let $g \in G$, and assume that $gH = Hg$. Therefore:
+\begin{align*}
+    \{gh \,|\, h \in H\} &= \{hg \,|\, h \in H\} \\
+    \{ghg^{-1} \,|\, h \in H\} &= \{hgg^{-1} \,|\, h \in H\} \\
+    \{ghg^{-1} \,|\, h \in H\} &= \{h \,|\, h \in H\} \\
+    gHg^{-1} &= H
+\end{align*}
+
+So our theorem is proven. We can feel free to use these alternate definitions interchangeably.
+
+\end{proof}

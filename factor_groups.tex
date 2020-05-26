@@ -1,0 +1,54 @@
+\section{Factor Groups}
+
+At this point, all of the concepts we've defined start to come together. First, we need just a little more machinery to operate on cosets.
+
+\begin{theorem}
+Let $H$ be a subgroup of $G$, and consider two left cosets $aH$ and $bH$ of $H$. Then the operation $(aH)(bH) = (ab)H$ is well-defined if and only if $H$ is a normal subgroup.
+\end{theorem}
+
+Before proving this, let's think about what we need to show. Left coset multiplication, which is a new operation on cosets, is well-defined as a binary operation if and only if it satisfies definition \ref{binaryoperation}. That is, it maps each pair of left cosets to a \textit{unique} corresponding coset. Recall that $aH = cH$ is equivalent to $c \in aH$ by Theorem \ref{cosets}. Therefore, left coset multiplication is well-defined if and only if, for all $ah_1 \in aH$ and $bh_2 \in bH$,
+
+\begin{center}
+    $(aH)(bH) = (ah_1H)(bh_2H) = (ab)H = (ah_1bh_2)H$.
+\end{center}
+
+With this reformulation, we can now proceed to the proof.
+
+\begin{proof}
+
+Assume that the operation is well-defined. We want to show that $H$ is normal. Let $a \in G$. We'll show that $aH = Ha$.
+
+Let $x \in aH$, so $xH = aH$. Computing with our operation, which by assumption is well-defined, we have
+
+\begin{center}
+    $(xH)(\inv a H) = (x\inv a)H$.
+\end{center}
+
+But we could also compute the same product with different representatives, as the following.
+
+\begin{center}
+    $(aH)(\inv a H) = (a \inv a)H = eH = H$
+\end{center}
+
+Therefore $(x\inv a)H = H$. Using the first bulleted property of Theorem \ref{cosets}, this implies that $x\inv a \in H$, so there exists an $h \in H$ such that $x\inv a = h$, or $x = ha \in Ha$. Therefore $aH \subseteq Ha$.
+
+Similarly, let $x \in Ha$. By the same reasoning, we have:
+
+\begin{align*}
+    (H\inv a)(Hx) &= (H\inv a)(Ha) \\
+    H(\inv a x) &= H \\
+\end{align*}
+
+Therefore $\inv a x = h$ for some $h \in H$, which means that $x = ah \in aH$, so $Ha \subseteq aH$. Therefore $aH = Ha$, and $H$ is normal.
+
+Conversely, suppose that $H$ is normal. We need to show that coset multiplication is well-defined. Let $aH$ and $bH$ be cosets, and let $ah_1 \in aH$ and $ah_2 \in bH$. Then our operation states that $(ah_1)H(bh_2)H = (ah_1bh_2)H$. Because $H$ is normal, we know that $Hb = bH$, so $h_1 b = b h_3$ for some $h_3 \in H$. Therefore, $a\left(h_1b\right) h_2 = ab h_3 h_2$. So we have:
+
+\begin{align*}
+    \left(ah_1 H\right)\left(bh_2 H\right) &= \left(ah_1bh_2 H\right) \\
+    &= ab\left(h_3 h_2\right)H \\
+    &= ab H
+\end{align*}
+
+So coset multiplication doesn't depend on choices of representatives, and is therefore well-defined.
+
+\end{proof}
