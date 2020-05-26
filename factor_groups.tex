@@ -2,6 +2,8 @@
 
 At this point, all of the concepts we've defined start to come together. First, we need just a little more machinery to operate on cosets.
 
+% Revisit this theorem -- it needs to be clear.
+
 \begin{theorem}
 Let $H$ be a subgroup of $G$, and consider two left cosets $aH$ and $bH$ of $H$. Then the operation $(aH)(bH) = (ab)H$ is well-defined if and only if $H$ is a normal subgroup.
 \end{theorem}
@@ -33,22 +35,35 @@ But we could also compute the same product with different representatives, as th
 Therefore $(x\inv a)H = H$. Using the first bulleted property of Theorem \ref{cosets}, this implies that $x\inv a \in H$, so there exists an $h \in H$ such that $x\inv a = h$, or $x = ha \in Ha$. Therefore $aH \subseteq Ha$.
 
 Similarly, let $x \in Ha$. By the same reasoning, we have:
-
 \begin{align*}
     (H\inv a)(Hx) &= (H\inv a)(Ha) \\
-    H(\inv a x) &= H \\
+    H(\inv a x) &= H
 \end{align*}
-
 Therefore $\inv a x = h$ for some $h \in H$, which means that $x = ah \in aH$, so $Ha \subseteq aH$. Therefore $aH = Ha$, and $H$ is normal.
 
 Conversely, suppose that $H$ is normal. We need to show that coset multiplication is well-defined. Let $aH$ and $bH$ be cosets, and let $ah_1 \in aH$ and $ah_2 \in bH$. Then our operation states that $(ah_1)H(bh_2)H = (ah_1bh_2)H$. Because $H$ is normal, we know that $Hb = bH$, so $h_1 b = b h_3$ for some $h_3 \in H$. Therefore, $a\left(h_1b\right) h_2 = ab h_3 h_2$. So we have:
-
 \begin{align*}
     \left(ah_1 H\right)\left(bh_2 H\right) &= \left(ah_1bh_2 H\right) \\
     &= ab\left(h_3 h_2\right)H \\
     &= ab H
 \end{align*}
-
 So coset multiplication doesn't depend on choices of representatives, and is therefore well-defined.
+
+\end{proof}
+
+Well, you might wonder what the point of defining an operation on the cosets of a group might be. As a matter of fact, if our coset multiplication is well defined, the cosets themselves form a group! We can often think of the operations on cosets as operations of certain types or classes of elements in the original group.
+
+\begin{theorem}
+Let $N$ be a normal subgroup of $G$. Then the set of cosets of $N$ form a group under coset multiplication. We call this group a \textbf{factor group}, or \textbf{quotient group}, denoted $G/N$. This is read as ``$G$ mod $N$'' or ``$G$ over $N$.''
+\end{theorem}
+
+\begin{proof}
+Since $N$ is a normal subgroup of $G$, coset multiplication is well-defined. Let $aN, bN, cN \in G/N$. $eN = N$ serves as the identity element in $G/N$, because $(eN)(aN) = (ea)N = aN = (ae)N = (aN)(eN)$. In addition, $\left(\inv a N\right)(aN) = \left(\inv a a\right)N = eN = \left(a \inv a\right)N = (aN)\left(\inv a N\right)$, so each coset has its own inverse. Finally, we have:
+\begin{align*}
+    (aN)\left[(bN)(cN)\right] &= aN(bcN) = a(bc)N = (ab)cN \\
+    &= (abN)cN = \left[(aN)(bN)\right]cN,
+\end{align*}
+
+So associativity in $G/N$ follows from associativity in $G$. Therefore $G/N$ is a group.
 
 \end{proof}
