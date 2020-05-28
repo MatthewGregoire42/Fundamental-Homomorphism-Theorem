@@ -92,3 +92,15 @@ Let $G$ be a group with a binary operation $*$. \extra If $*$ is commutative, th
 \begin{example}
 The familiar properties of integer addition show that $\z$ and $\zn[n]$ for any $n$ are abelian groups.
 \end{example}
+
+\begin{example}
+Let $F$ be the set of all invertible functions from $\mathbb{R}$ to $\mathbb{R}$, and consider the operation of function composition defined on $F$. Here $i(x) = x$ serves as the identity function, and each function in $F$ has an inverse in $F$ by construction. Function composition is associative as well. Finally, if $f, g \in F$, then $\inv{(f \circ g)} = \inv g \circ \inv f$, because: 
+\begin{align*}
+\left[(f \circ g) \circ \left(\inv g \circ \inv f\right)\right]x &= f\left(g\left(\inv g\left(\inv f \left(x\right)\right)\right)\right) \\
+ &= f\left(\left(g \circ \inv g\right)\left(\inv f(x)\right)\right) \\
+ &= f\left(i\left(\inv f(x)\right)\right) \\
+ &= \left(f \circ \inv f\right)(x) \\
+ &= i(x)\mathrm{,}
+\end{align*}
+which is the identity map. It can be similarly shown that $\inv g \circ \inv f$ is the left inverse of $f \circ g$ as well. Therefore $F$ forms a group under function composition. Take $f(x) = x+1$ and $g(x) = x^3$. Both of these are invertible functions. We also see that $(f \circ g)(x) = x^3 + 1$, while $(g \circ f)(x) = (x+1)^3$. Therefore $F$ is not an abelian group.
+\end{example}

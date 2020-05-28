@@ -25,3 +25,19 @@ Therefore $a\inv \in \ker(\phi) = K$. By Theorem \ref{cosets}, this implies that
 To check final property, let $a \in G$. Then $\mu(\gamma(a)) = \mu(aK) = \phi(a)$, so the theorem is proven.
 
 \end{proof}
+
+Essentially this proof tells us the following: if we are given a homomorphism $\phi$ with a kernel $K$, which can be symbolized as the following:
+
+\begin{center}
+\begin{tikzcd}
+    G \arrow{r}{\phi} & G'
+\end{tikzcd}
+\end{center}
+
+Then we can always ``factor'' this map as the isomorphism $\mu$ applied to the surjecive map $\gamma$. We can also consider the identity map $\lambda: \phi(G) \to G'$ defined by $\lambda(\phi(a)) = \phi(a)$ trivially as an injective homomorphism between $\phi(G)$ and $G'$. So we can ``factor'' $\phi$ completely as:
+
+\begin{center}
+\begin{tikzcd}[column sep=large]
+    G \arrow{r}{\gamma}[below]{\mathrm{surjection}} & G/K \arrow{r}{\mu}[below]{\mathrm{bijection}} & \phi(G) \arrow{r}{\lambda}[below]{\mathrm{injection}} & G'
+\end{tikzcd}
+\end{center}
