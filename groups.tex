@@ -105,9 +105,8 @@ Let $F$ be the set of all invertible functions from $\mathbb{R}$ to $\mathbb{R}$
 which is the identity map. It can be similarly shown that $\inv g \circ \inv f$ is the left inverse of $f \circ g$ as well. Therefore $F$ forms a group under function composition. Take $f(x) = x+1$ and $g(x) = x^3$. Both of these are invertible functions. We also see that $(f \circ g)(x) = x^3 + 1$, while $(g \circ f)(x) = (x+1)^3$. Therefore $F$ is not an abelian group.
 \end{example}
 
-% Add dihedral group of the triangle here.
+For the rest of this section, we'll develop one simple example of a non-abelian group. Consider an equilateral triangle with labeled vertices:
 
-% For the rest of this section, we'll develop one simple example of a non-abelian group. Consider an equilateral triangle with labeled vertices:
+\dihedral{1}{2}{3}
 
-% \begin{tikzpicture}
-% \end{tikzpicture}
+Now we ask ourselves: how we can transform this triangle so that it lands back on itself, potentially with the vertices rearranged? We can do no operation to the triangle, which won't permute the vertices. We can also reflect through an axis going through one vertex, and we can rotate the triangle by $60^\circ$ either clockwise or counterclockwise. This gives six possible operations.

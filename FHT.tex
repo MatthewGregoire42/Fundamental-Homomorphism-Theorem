@@ -12,13 +12,25 @@
 \usepackage{amssymb}
 \usepackage{indentfirst}
 \usepackage{tikz-cd}
-\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetikzlibrary{positioning,quotes,decorations.markings}
 
 \newcommand{\inv}[1]{#1^{-1}}
 \newcommand{\z}{\mathbb{Z}}
 \newcommand{\np}{\;\tilde{+}\;}
 \newcommand{\zn}[1][]{\mathbb{Z}_{#1}}
 \newcommand{\extra}{\marginpar{$\spadesuit$}}
+
+\newcommand{\dihedral}[3]{
+\begin{center}
+\begin{tikzpicture}
+\path (0,0) coordinate (A) (2,0) coordinate (B) (1,1.732) coordinate (C);
+\draw (C)
+-- (A) node [at start, above]{$#1$}
+-- (B) node [at start, left]{$#3$}
+-- (C) node [at start, right]{$#2$} -- cycle;
+\end{tikzpicture}
+\end{center}}
 
 \renewcommand\qedsymbol{$\blacksquare$}
 
