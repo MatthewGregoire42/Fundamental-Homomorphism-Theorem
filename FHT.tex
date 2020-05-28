@@ -6,13 +6,14 @@
 \date{May 2020}
 
 \usepackage{natbib}
-\usepackage{graphicx}
+% \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{indentfirst}
 \usepackage{tikz-cd}
 \usepackage{tkz-euclide}
+\usepackage{etoolbox}
 \usetikzlibrary{positioning,quotes,decorations.markings}
 
 \newcommand{\inv}[1]{#1^{-1}}
@@ -21,16 +22,39 @@
 \newcommand{\zn}[1][]{\mathbb{Z}_{#1}}
 \newcommand{\extra}{\marginpar{$\spadesuit$}}
 
-\newcommand{\dihedral}[3]{
-\begin{center}
-\begin{tikzpicture}
-\path (0,0) coordinate (A) (2,0) coordinate (B) (1,1.732) coordinate (C);
-\draw (C)
--- (A) node [at start, above]{$#1$}
--- (B) node [at start, left]{$#3$}
--- (C) node [at start, right]{$#2$} -- cycle;
-\end{tikzpicture}
-\end{center}}
+\newcommand{\AxisRotator}[1][rotate=0]{%
+    \tikz [x=0.25cm,y=0.60cm,line width=.2ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
+}
+
+\newcommand{\var}{}
+
+% A command to print the dihedral group of order 6,
+% as well as every operation on it.
+\newcommand{\dihedral}[4][]{
+\ifstrempty{#1}{
+    \renewcommand{\var}{}
+}{ \ifstrequal{#1}{r1}{
+    \renewcommand{\var}{\node[] at (1,0.65) {$\circlearrowright$};}
+}{ \ifstrequal{#1}{r2}{
+    \renewcommand{\var}{\node[] at (1,0.65) {$\circlearrowleft$};}
+}{ \ifstrequal{#1}{m1}{
+    \renewcommand{\var}{\draw[dashed] (1,0) -- (1,1.732);}
+}{ \ifstrequal{#1}{m2}{
+    \renewcommand{\var}{\draw[dashed] (2,0) -- (0.5,0.866);}
+}{ \ifstrequal{#1}{m3}{
+    \renewcommand{\var}{\draw[dashed] (0,0) -- (1.5,0.866);}
+}{}}}}}}
+    \begin{center}
+    \begin{tikzpicture}
+    \path (0,0) coordinate (A) (2,0) coordinate (B) (1,1.732) coordinate (C);
+    \draw (C)
+    -- (A) node [at start, above]{$#2$}
+    -- (B) node [at start, left]{$#4$}
+    -- (C) node [at start, right]{$#3$} -- cycle;
+    \var
+    \end{tikzpicture}
+    \end{center}
+}
 
 \renewcommand\qedsymbol{$\blacksquare$}
 
