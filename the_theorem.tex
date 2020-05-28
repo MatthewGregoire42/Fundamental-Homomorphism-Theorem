@@ -5,3 +5,23 @@ Now we finally have built all the machinery we need to tackle this theorem. The 
 \begin{theorem}[The Fundamental Homomorphism Theorem]
 Let $\phi: G \to G'$ be a group homomorphism with kernel $K$. Then $\mu: G/K \to \phi(G)$ defined by $\mu(aK) = \phi(a)$ is an isomorphism. If $\gamma: G \to G/K$ is the canonical homomorphism given by $\gamma(a) = aK$, then $\phi(a) = \mu(\gamma(a))$ for all $a \in G$.
 \end{theorem}
+
+\begin{proof}
+By Theorem \ref{normalkernel}, $K$ is a normal subgroup of $G$, so it makes sense to discuss $G/K$. First, let's check that $\mu$ is a homomorphism. Let $aK, bK \in G/K$. Because multiplication of cosets of $K$ is well-defined, and $\phi$ is a homomorphism, we can see that
+\begin{align*}
+    \mu(aKbK) &= \mu(abK) \\
+    &= \phi(ab) \\
+    &= \phi(a)\phi(b) \\
+    &= \mu(aK)\mu(bK)\mathrm{,}
+\end{align*}
+so the homomorphism property is satisfied. Suppose that $\mu(aK) = \mu(bK).$ Therefore $\phi(a) = \phi(b)$, and because $\phi$ is a homomorphism,
+\begin{align*}
+    \phi(a)\inv{\phi(b)} &= e' \\
+    \phi(a)\phi(\inv b) &= e' \\
+    \phi(a\inv b) &= e'\mathrm{.}
+\end{align*}
+Therefore $a\inv \in \ker(\phi) = K$. By Theorem \ref{cosets}, this implies that $aK = bK$, so $\mu$ is injective. Now let $\phi(a) \in \phi(G)$. Clearly $\mu(aK) = \phi(a)$, so $\mu$ is also surjective. Therefore $\mu$ is indeed an isomorphism.
+
+To check final property, let $a \in G$. Then $\mu(\gamma(a)) = \mu(aK) = \phi(a)$, so the theorem is proven.
+
+\end{proof}
