@@ -73,6 +73,7 @@ First, we immediately see that $eH = \{eh \,|\, h \in H\} = H$. Therefore, takin
 \end{proof}
 
 \begin{theorem}
+\label{cosetpartition}
 Let $H$ be a subgroup of a group $G$. Then the set of all left cosets of $H$ partition $G$.
 \end{theorem}
 
@@ -81,4 +82,30 @@ Since $H$ is a subgroup of $G$, we must have $e \in H$, so $H$ is nonempty. Ther
 
 \end{proof}
 
-% Maybe add something about Theorem of Lagrange here.
+At this point, we'll take a slight detour to prove Lagrange's Theorem. While not strictly necessary to understand the Fundamental Homomorphism Theorem, the result is so elegant that we would be remiss to leave it out.
+
+\begin{theorem}
+\label{cosetsize}
+If \extra $H$ is a subgroup of $G$, then every left coset of $H$ has the same cardinality as $H$ itself.
+\end{theorem}
+
+\begin{proof}
+Let $aH$ be a coset of $H$. We'll find a bijection between $H$ and $aH$, namely, the map defined by $f(x) = ax$. Suppose that $f(g) = f(h)$. Then $ag = ah$, and by cancellation, $g=h$, so $f$ is an injection. And clearly if $y \in aH$, then $y = ah$ for some $h \in H$, so $f(h) = ah = y$. So y is surjective, and therefore a bijection.
+\end{proof}
+
+\begin{definition}
+Let \extra $G$ be a group. The number of elements in $G$ is called the \textbf{order} of $G$, denoted $|G|$. If $G$ has finitely many elements, it's a \textbf{finite group}, and has \textbf{infinite order} otherwise.
+\end{definition}
+
+\begin{theorem}[Lagrange's Theorem]
+Let \extra $G$ be a finite group. If $H$ is a subgroup of $G$, then the order of $H$ divides the order of $G$.
+\end{theorem}
+
+\begin{proof}
+By Theorem \ref{cosetpartition}, the cosets of $H$ partition $G$. And by Theorem \ref{cosetsize}, each coset of $H$ has size $|H|$. If there are $n$ distinct cosets of $H$, then $n|H|$ counts each element of $G$ exactly once. Therefore
+\begin{equation*}
+    |G| = n|H|\mathrm{,}
+\end{equation*}
+so the order of $H$ is a divisor of the order of $G$.
+
+\end{proof}
