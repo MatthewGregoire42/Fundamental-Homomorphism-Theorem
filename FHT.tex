@@ -14,6 +14,7 @@
 \usepackage{tikz-cd}
 \usepackage{tkz-euclide}
 \usepackage{etoolbox}
+\usepackage{caption}
 \usetikzlibrary{positioning,quotes,decorations.markings}
 
 \newcommand{\inv}[1]{#1^{-1}}
@@ -21,10 +22,6 @@
 \newcommand{\np}{\;\tilde{+}\;}
 \newcommand{\zn}[1][]{\mathbb{Z}_{#1}}
 \newcommand{\extra}{\marginpar{$\spadesuit$}}
-
-\newcommand{\AxisRotator}[1][rotate=0]{%
-    \tikz [x=0.25cm,y=0.60cm,line width=.2ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
-}
 
 \newcommand{\var}{}
 
@@ -44,7 +41,7 @@
 }{ \ifstrequal{#1}{m3}{
     \renewcommand{\var}{\draw[dashed] (0,0) -- (1.5,0.866);}
 }{}}}}}}
-    \begin{center}
+    % \begin{center}
     \begin{tikzpicture}
     \path (0,0) coordinate (A) (2,0) coordinate (B) (1,1.732) coordinate (C);
     \draw (C)
@@ -53,7 +50,7 @@
     -- (C) node [at start, right]{$#3$} -- cycle;
     \var
     \end{tikzpicture}
-    \end{center}
+    % \end{center}
 }
 
 \renewcommand\qedsymbol{$\blacksquare$}

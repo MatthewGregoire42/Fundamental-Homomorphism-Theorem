@@ -107,6 +107,23 @@ which is the identity map. It can be similarly shown that $\inv g \circ \inv f$ 
 
 For the rest of this section, we'll develop one simple example of a non-abelian group. Consider an equilateral triangle with labeled vertices:
 
+\begin{figure}[h]
+\centering
 \dihedral{1}{2}{3}
+\caption{}
+\end{figure}
 
-Now we ask ourselves: how we can transform this triangle so that it lands back on itself, potentially with the vertices rearranged? We can leave the triangle alone, which won't permute the vertices at all. We can also reflect through an axis going through one vertex, and we can rotate the triangle by $60^\circ$ either clockwise or counterclockwise. This gives six possible operations.
+Now we ask ourselves: how we can transform this triangle so that it lands back on itself, potentially with the vertices rearranged? We can leave the triangle alone, which won't permute the vertices at all. We can also reflect through an axis going through one vertex, and we can rotate the triangle by $60^\circ$ either clockwise or counterclockwise. This gives six possible operations, all shown below.
+
+\begin{figure}[h]
+\centering
+\begin{tabular}{c c c}
+    \dihedral{1}{2}{3} & \dihedral[r1]{3}{1}{2} & \dihedral[r2]{2}{3}{1} \\
+    \dihedral[m1]{1}{3}{2} & \dihedral[m2]{3}{2}{1} & \dihedral[m3]{2}{1}{3}
+\end{tabular}
+\caption{The six symmetries of an equilateral triangle.}
+\label{d3}
+\end{figure}
+
+From left to right and top to bottom as shown in Figure \ref{d3}, let's define these operations on the triangle $e$, $\rho_1$, $\rho_2$, $\mu_1$, $\mu_2$, and $\mu_3$ respectively, where $\rho$ indicates a \textit{rotation} has been applied and $\mu$ is a \textit{mirroring}. The crucial step is to \textit{consider these operations as elements of a group}, where the group operation is composition. Here $e$ acts as the identity element. It's easy to see that the two opposite rotations are inverses of each other, and each reflection is its own inverse.
+% associativity and closure
