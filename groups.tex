@@ -11,7 +11,7 @@ If in $G$, we have $*(a, b) = c$, we usually write $a * b = c$. In fact, we can 
 
 
 \begin{definition}
-A \textbf{group} is a set G along with a binary operation $*: G \times G \to G$ that satisfies the following properties:
+A \textbf{group} is a set G along with a binary operation $*$ that satisfies the following properties:
 \begin{itemize}
     \item There exists an element $e \in G$ such that, for all $a \in G$, $a*e = e*a = a$. Here $e$ is referred to as the \textbf{identity element} for $*$.
     \item For all $a \in G$, there exists an $\inv{a} \in G$ such that $a*\inv{a} = \inv{a}*a = e$. We call $\inv{a}$ the \textbf{inverse} of $a$.
@@ -105,9 +105,9 @@ Let $F$ be the set of all invertible functions from $\mathbb{R}$ to $\mathbb{R}$
 which is the identity map. It can be similarly shown that $\inv g \circ \inv f$ is the left inverse of $f \circ g$ as well. Therefore $F$ forms a group under function composition. Take $f(x) = x+1$ and $g(x) = x^3$. Both of these are invertible functions. We also see that $(f \circ g)(x) = x^3 + 1$, while $(g \circ f)(x) = (x+1)^3$. Therefore $F$ is not an abelian group.
 \end{example}
 
-Finally, \extra to get a little more feel for the structure of a group, we can introduce \textbf{Cayley tables} for finite groups. The Cayley table for $\zn[4]$ is given in Figure \ref{z4}. The rows and columns are titled with elements of the group, and in row $a$ and column $b$ we put the element $a + b$. Note that this is the same as $b + a$ because $\zn[4]$ is abelian, but this is not always the case. For a general group, the entry in row $a$ and column $b$ could be different from the entry in row $b$ and column $a$.
+Now \extra to get more of a feel for the structure of a group, we can introduce \textbf{Cayley tables} (or \textbf{Cayley diagrams}) for finite groups. The Cayley table for $\zn[4]$ is given in Figure \ref{z4}. The rows and columns are titled with elements of the group, and in row $a$ and column $b$ we put the element $a + b$. Note that this is the same as $b + a$ because $\zn[4]$ is abelian, but this is not always the case. For a general group, the entry in row $a$ and column $b$ could be different from the entry in row $b$ and column $a$.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{tabular}{c | c c c c}
     $+$ & $0$ & $1$ & $2$ & $3$ \\
