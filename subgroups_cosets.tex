@@ -1,8 +1,8 @@
 \section{Subgroups and Cosets}
 
-From here on out, we'll use multiplicative notation exclusively when discusing group operations. Also, constantly specifying the name of a group's operation can get tedious, so by abuse of notation, we can feel free to refer to a group $G$ by itself. When we do this, it's implied that $G$ has an associated operation that satisfies the group axioms. Since it's still convenient to give this operation a name, we might as well call it multiplication in most cases. And finally, since every group operation is associative, we can drop parentheses in any expression for clarity. For our purposes, these notation decisions shouldn't cause any confusion.
+From here on out, we'll use multiplicative notation exclusively when discusing group operations. Also, constantly specifying the name of a group's operation can get tedious, so by abuse of notation, we can feel free to refer to a group $G$ by itself. When we do this, it's implied that $G$ has an associated operation that satisfies the group axioms. Since it's still convenient to give this operation a name, we might as well call it multiplication in most cases. And finally, since every group operation is associative, we can drop parentheses in any expression for clarity. For our purposes, these notation decisions shouldn't cause any confusion or ambiguity.
 
-Subgroups are still a somewhat intuitive topic. The formal definition is below.
+Subgroups are a somewhat natural extension from the concept of groups. The formal definition is given below.
 
 \begin{definition}
 Let $G$ be a group, and let $H \subseteq G$. If under the binary operation of $G$, $H$ forms a group, we call $H$ a \textbf{subgroup} of $G$.
@@ -17,6 +17,7 @@ Let $*$ be a binary operation of a set $G$, and let $H \subseteq G$. If for all 
 In order for $H$ to be a subgroup of $G$, $H$ needs to satisfy the group axioms. This makes the next theorem feel somewhat tautological, but it provides a methodical way to check if a given subset $H$ is indeed a subgroup of $G$.
 
 \begin{theorem}
+\label{subgroup}
 Let $G$ be a group, and let $H \subseteq G$. Then $H$ is a subgroup of $G$ if and only if:
 \begin{itemize}
     \item $e \in H$
@@ -32,11 +33,39 @@ Conversely, suppose that the above properties hold for a subset $H$ of $G$. Sinc
 
 \end{proof}
 
+\begin{example}
+If $G$ is any group, the set $\{e\}$ containing only the identity, with binary operation $e*e = e$, is always a subgroup of $G$ that quickly satisfies the requirements of Theorem \ref{subgroup}. This is sometimes called the \textbf{trivial subgroup} of $G$. Moreover, $G$ is also a subgroup of itself. This is called the \textbf{improper subgroup} of $G$.
+\end{example}
+
+\begin{example}
+\label{4z}
+Take the set $\{\dots, -8, -4, 0, 4, 8, \dots\} \subseteq \z$ consisting of all multiples of $4$, with the operation of addition. This is denoted $4\z$. We can see $0 \in 4\z$, and acts as the identity. Also, if $n = 4k$ for $k \in \z$, then $-n = -(4k) = 4(-k) \in 4\z$. Finally, $4a + 4b = 4(a+b) \in 4\z$ for any $4a, 4b \in 4\z$. Therefore $4\z$ is a subgroup of $\z$ under addition. The same method can show that $n\z$ is a subgroup of $\z$ for any $n \geq 1$.
+\end{example}
+
+\begin{example}
+Take within $D_3$ the subset $\{e, \rho_1, \rho_2\}$ of the rotations and the identity (a trivial rotation). By examining the Cayley table in Figure \ref{cayleyD3}, we see that this set is closed under composition and inverses, and is thus a subgroup of $D_3$. By a similar argument, the subset $\{e, \mu_1\}$ is also a subgroup of $D_3$.
+\end{example}
+
 Subgroups also naturally give rise to a discussion of cosets.
 
 \begin{definition}
 Let $H$ be a subgroup of a group $G$, and let $a \in G$. The set $\{ah \,|\, h \in H\}$, denoted $aH$, is a subset of $G$. We call this the \textbf{left coset} of $H$ containing $a$. Similarly, the set $Ha = \{ha \,|\, h \in H\}$ is called the \textbf{right coset} of $H$ containing $a$.
 \end{definition}
+
+\begin{example}
+Take the group $\z$ and its subgroup $4\z$. Here, note that we'll write cosets in additive notation, because these groups are written in additive notation. We have:
+\begin{align*}
+    0 + 4\z &= \{\dots, -8, -4, 0, 4, 8, \dots\} \\
+    1 + 4\z &= \{\dots, -7, -3, 1, 5, 9, \dots\} \\
+    2 + 4\z &= \{\dots, -6, -2, 2, 6, 10, \dots\} \\
+    3 + 4\z &= \{\dots, -5, -1, 3, 5, 11, \dots\}
+\end{align*}
+We'll prove soon the intuitive fact that these cosets do indeed partition $\z$. We could also take the coset of any other integer. For example, $-6 + 4\z = \{\dots, -14, -10, -6, -2, 2, 6, 10, \dots\} = 2 + 4\z$. This shows that the choices of representatives for cosets is not unique.
+\end{example}
+
+% \begin{example}
+% Consider $D_3$ and its subgroup $\{e, \mu_1\}$.
+% \end{example}
 
 The following theorems and proofs involving left cosets have symmetrical theorems and proofs involving right cosets, so for this document we'll mostly deal with left cosets. Cosets have a number of interesting properties, but proofs about properties of cosets usually aren't illuminating by themselves. Therefore, it's important to have a good intuition for some of their basic properties. We'll give a few of these properties in the following theorems.
 
