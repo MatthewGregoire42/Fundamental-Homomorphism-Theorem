@@ -63,11 +63,17 @@ Take the group $\z$ and its subgroup $4\z$. Here, note that we'll write cosets i
 We'll prove soon the intuitive fact that these cosets do indeed partition $\z$. We could also take the coset of any other integer. For example, $-6 + 4\z = \{\dots, -14, -10, -6, -2, 2, 6, 10, \dots\} = 2 + 4\z$. This shows that the choices of representatives for cosets is not unique.
 \end{example}
 
-% \begin{example}
-% Consider $D_3$ and its subgroup $\{e, \mu_1\}$.
-% \end{example}
+\begin{example}
+Consider $D_3$ and its subgroup $H = \{e, \mu_1\}$. The left cosets of $H$ are as follows:
+\begin{align*}
+    eH      &= \{e, \mu_1\}      \\
+    \rho_1H &= \{\rho_1, \mu_2\} \\
+    \rho_2H &= \{\rho_2, \mu_3\} \\
+\end{align*}
+We can also verify (using the Cayley table in Figure \ref{cayleyD3}) that these left cosets are unique. That is, $\mu_2H = \rho_1H$, and $\mu_3H = \rho_2H$. We will prove that this is true in general in Theorem \ref{cosets}.
+\end{example}
 
-The following theorems and proofs involving left cosets have symmetrical theorems and proofs involving right cosets, so for this document we'll mostly deal with left cosets. Cosets have a number of interesting properties, but proofs about properties of cosets usually aren't illuminating by themselves. Therefore, it's important to have a good intuition for some of their basic properties. We'll give a few of these properties in the following theorems.
+The following theorems and proofs involving left cosets have symmetrical theorems and proofs involving right cosets. For this document we'll mostly deal with left cosets, but this is only done for simplicity. Right cosets have corresponding properties. Cosets have a number of interesting properties, but proofs about properties of cosets usually aren't illuminating by themselves. Therefore, it's important to have a good intuition for some of their basic properties. We'll give a few of these properties in the following theorems.
 
 \begin{theorem}
 \label{cosets}
