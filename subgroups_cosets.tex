@@ -95,7 +95,7 @@ Finally, suppose that $\inv{b}a \in H$. So there exists an $h \in H$ such that $
 
 \end{proof}
 
-Again, the proof of the above theorem isn't terribly important. The important thing to realize is that, in a loose sense, the equivalent statements above can be ``multiplied by $b$'' to get one of the other forms. Also, from this we immediately have the following.
+Again, the mechanics of the proof above aren't terribly important. The important thing to realize is that, in a loose sense, the equivalent statements above can be ``multiplied by $b$'' to get one of the other forms. Internalizing this result will help in all of our work from here on out. Also, from this we immediately have the following.
 
 \begin{corollary}
 \label{cosetcorollary}
@@ -129,7 +129,7 @@ Let $aH$ be a coset of $H$. We'll find a bijection between $H$ and $aH$, namely,
 \end{proof}
 
 \begin{definition}
-Let \extra $G$ be a group. The number of elements in $G$ is called the \textbf{order} of $G$, denoted $|G|$. If $G$ has finitely many elements, it's a \textbf{finite group}, and has \textbf{infinite order} otherwise.
+Let \extra $G$ be a group. The number of elements in $G$ is called the \textbf{order} of $G$, denoted $|G|$. If $G$ has finitely many elements we call it a \textbf{finite group}. Otherwise, we say $G$ has \textbf{infinite order}.
 \end{definition}
 
 \begin{theorem}[Lagrange's Theorem]
@@ -144,3 +144,11 @@ By Theorem \ref{cosetpartition}, the cosets of $H$ partition $G$. And by Theorem
 so the order of $H$ is a divisor of the order of $G$.
 
 \end{proof}
+
+\begin{example}
+Take the subset $\{0, 2, 4\}$ of $\zn[6]$. By computing every possible sum in this set, we see this is actualy a subgroup of $\zn[6]$. Note that Lagrange's Theorem holds, as $\left|\zn[6]\right| = 6$ and $|\{0, 2, 4\}| = 3$, and $3|6$. By the converse of the theorem, we also see that any subset of $\zn[6]$ with cardinality other than $1, 2, 3$, or $6$ can't be a subgroup of $\zn[6]$.
+\end{example}
+
+\begin{example}
+Consider $\zn[p]$, where $p$ is prime. By Lagrange's Theorem, the only possible orders for subgroups of $\zn[p]$ are $1$ and $p$. Therefore $\zn[p]$ has no proper nontrivial subgroups.
+\end{example}

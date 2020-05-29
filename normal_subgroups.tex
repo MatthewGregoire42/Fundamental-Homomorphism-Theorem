@@ -42,3 +42,31 @@ So our theorem is proven. We can feel free to use these alternate definitions in
 \begin{example}
 Any subgroup of an abelian group is normal. If $H$ is a subgroup of an abelian group $G$, then let $h \in H$ and $g \in G$. We see that $gh\inv g = g \inv g h = eh = h \in H$, so by the second property of Theorem \ref{normaldefs}, $H$ is normal. In particular, this shows that all subgroups of $\z$ and $\zn[n]$ for any $n \in \z^+$ are normal.
 \end{example}
+
+\begin{example}
+Let $H$ be the subgroup $\{e, \mu_2\}$ of $D_3$. Note that
+\begin{equation*}
+    \rho_1 H = \{\rho_1, \mu_3\}\mathrm{, but}
+\end{equation*}
+\begin{equation*}
+    H \rho_1 = \{\rho_1, \mu_1\}.
+\end{equation*}
+Therefore $\rho_1 H \neq H\rho_1$, so $H$ is not a normal subgroup of $D_3$. Alternatively, we could note that $\rho_1\mu_2\inv{\rho_1} = \left(\rho_1 \mu_2\right)\rho_2 = \mu_3 \rho_2 = \mu_1 \notin H$ to show that $H$ is not normal in $D_3$.
+\end{example}
+
+\begin{example}
+Now let $H$ be the subgroup $\{e, \rho_1, \rho_2\}$ of $D_3$. The left and right cosets are
+\begin{align*}
+    eH      &= \{e, \rho_1, \rho_2\}   & He &= \{e, \rho_1, \rho_2\} \\
+    \mu_1 H &= \{\mu_1, \mu_3, \mu_2\} & H \mu_1 &= \{\mu_1, \mu_2, \mu_3\} \\
+\end{align*}
+These are the only cosets of $H$ in $D_3$ by Theorem \ref{cosets}. (An identical result holds for right cosets as well.) Therefore we can see that $aH = Ha$ for all $a \in H$, so $H$ is normal in $D_3$. This is a special case of the theorem below.
+\end{example}
+
+\begin{theorem}
+Let \extra $G$ be a group with a subgroup $H$. If $|G|/|H| = 2$, then $H$ is a normal subgroup of $G$.
+\end{theorem}
+
+\begin{proof}
+We see by the proof of Lagrange's Theorem that there are exactly two cosets of $H$ in $G$. Therefore these are precisely $H$ and $G - H$. If $a \in H$, then clearly $aH$ and $Ha$ are simply $H$ itself. And if $a \notin H$, then $a$ must be in $G-H = aH = Ha$, so $H$ is normal in $G$. 
+\end{proof}
