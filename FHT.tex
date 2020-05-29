@@ -5,7 +5,7 @@
 \author{Matthew Gregoire}
 \date{May 2020}
 
-\usepackage{natbib}
+% \usepackage{natbib}
 % \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -41,7 +41,6 @@
 }{ \ifstrequal{#1}{m3}{
     \renewcommand{\var}{\draw[dashed] (0,0) -- (1.5,0.866);}
 }{}}}}}}
-    % \begin{center}
     \begin{tikzpicture}
     \path (0,0) coordinate (A) (2,0) coordinate (B) (1,1.732) coordinate (C);
     \draw (C)
@@ -50,7 +49,6 @@
     -- (C) node [at start, right]{$#3$} -- cycle;
     \var
     \end{tikzpicture}
-    % \end{center}
 }
 
 \renewcommand\qedsymbol{$\blacksquare$}
