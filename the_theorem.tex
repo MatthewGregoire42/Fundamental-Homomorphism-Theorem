@@ -41,3 +41,35 @@ Then we can always ``factor'' this map as the isomorphism $\mu$ applied to the s
     G \arrow{r}{\gamma}[below]{\mathrm{surjection}} & G/K \arrow{r}{\mu}[below]{\mathrm{bijection}} & \phi(G) \arrow{r}{\lambda}[below]{\mathrm{injection}} & G'
 \end{tikzcd}
 \end{center}
+
+\begin{example}
+Let $\phi$ be the homomorphism from $\z$ to $\zn[4]$ defined in Example \ref{zn_homomorphism}. We know that the kernel of $\phi$ is $4\z$, and also $\phi$ clearly maps $\z$ onto $\zn[4]$. Therefore by the fundamental homomorphism theorem, $\z/4\z$ is isomorphic to $\zn[4]$. This is the elegant algebraic way to \textit{define} $\zn[4]$, as a group of cosets of $4\z$ (which are also congruence classes of $\z$).
+\end{example}
+
+\begin{example}
+Define $\phi: D_3 \to \zn[2]$ by:
+\begin{align*}
+    \phi(e) = \phi(\rho_1) = \phi(\rho_2) &= 0 & \phi(\mu_1) = \phi(\mu_2) = \phi(\mu_3) &= 1.
+\end{align*}
+It's easy to check that this is indeed a homomorphism by looking at Table \ref{cayleyD3}. The product of two rotations or two reflections is a rotation, and the product of a rotation and a reflection is a reflection. Thus the homomorphism property is satisfied. We can see that $\ker \phi = \{e, \rho_1, \rho_2\}$. This gives us another proof that this is a normal subgroup of $D_3$ by Theorem \ref{normalkernel}. If $K = \ker\phi$, then $D_3/K$ is isomorphic to $\phi(D_3) = \zn[2]$. We compare their Cayley tables in Figure \ref{d3z2} to show that these really are the same group with relabeled elements.
+
+\begin{figure}[ht]
+\centering
+\begin{tabular}{c | c c}
+    $\circ$  & $K$ & $\mu_1K$ \\
+    \hline
+    $K$      & $K$ & $\mu_1K$ \\
+    $\mu_1K$ & $\mu_1K$ & $K$
+\end{tabular}
+\quad
+\begin{tabular}{c | c  c}
+    $+$ & $0$ & $1$ \\
+    \hline
+    $0$ & $0$ & $1$ \\
+    $1$ & $1$ & $0$
+\end{tabular}
+\caption{Cayley tables for $D_3/K$ and $\zn[2]$}
+\label{d3z2}
+\end{figure}
+
+\end{example}

@@ -17,6 +17,7 @@ The important thing to realize here is that the multiplication on the left-hand 
 \end{equation*}
 
 \begin{example}
+\label{zn_homomorphism}
 Consider the groups $\z$ and $\zn[n]$ under addition. We claim that the map $\phi: \z \to \zn[n]$ taking every integer $x$ to its remainder when divided by $n$ is a homomorphism. We only have to check the above property. If $a = q_1n + r_1$ and $b = q_2n + r_2$ using the division algorithm, then
 \begin{align*}
     a + b &= q_1n + r_1 + q_2n + r_2 \\
@@ -132,6 +133,10 @@ so $\ker\phi$ is a subgroup of $G$. To show that it's normal, let $g \in G$ and 
 So $gk\inv g$ is in $\ker\phi$ as well.
 
 \end{proof}
+
+\begin{example}
+Let $\phi: \z \to \zn[4]$ be the homomorphism defined in Example \ref{zn_homomorphism}. The kernel of $\phi$ is the set of all $n \in \z$ such that the remainder of $n$ divided by $4$ is $0$. In other words, this is all multiples of four. This is indeed the subgroup $4\z$ of $\z$, and it is automatically normal because $\z$ is abelian.
+\end{example}
 
 We'll end this section with a useful way to test if a homomorphism is injective, although we won't be using it after this.
 
