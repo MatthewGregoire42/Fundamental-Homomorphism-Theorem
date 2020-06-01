@@ -122,7 +122,7 @@ Now \extra to get more of a feel for the structure of a group, we can introduce 
 \end{figure}
 
 For the rest of this section, we'll develop one extended example of a nonabelian group. Consider an equilateral triangle with labeled vertices, shown in Figure \ref{triangle}.
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \dihedral{1}{2}{3}
 \caption{}
@@ -130,7 +130,7 @@ For the rest of this section, we'll develop one extended example of a nonabelian
 \end{figure}
 This might seem a strange thing to consider. But now we ask ourselves: how we can transform this triangle so that it lands back on itself, potentially with the vertices rearranged? We can leave the triangle alone, which won't permute the vertices at all. We can also reflect through an axis going through one vertex, and we can rotate the triangle by $60^\circ$ either clockwise or counterclockwise. This gives six possible transformations, all shown below.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{tabular}{c c c}
     \dihedral{1}{2}{3} & \dihedral[r1]{3}{1}{2} & \dihedral[r2]{2}{3}{1} \\
@@ -144,7 +144,7 @@ From left to right and top to bottom as shown in Figure \ref{d3}, let's give the
 
 Last but not least, the Cayley table for $D_3$ is shown in Figure \ref{cayleyD3}. Notice that this group is nonabelian, as promised! This group has many interesting symmetries, and will serve as our prototypical example of a nonabelian group.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{tabular}{c | c c c c c c c}
     $\circ$  & $e$      & $\rho_1$ & $\rho_2$ & $\mu_1$  & $\mu_2$  & $\mu_3$ \\

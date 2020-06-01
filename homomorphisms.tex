@@ -132,3 +132,21 @@ so $\ker\phi$ is a subgroup of $G$. To show that it's normal, let $g \in G$ and 
 So $gk\inv g$ is in $\ker\phi$ as well.
 
 \end{proof}
+
+We'll end this section with a useful way to test if a homomorphism is injective, although we won't be using it after this.
+
+\begin{theorem}
+Let \extra $\phi: G \to G'$ be a group homomorphism. Then $\phi$ is injective if and only if $\ker \phi = \{e\}$.
+\end{theorem}
+
+\begin{proof}
+Suppose that $\phi$ is injective. Then if $\phi(a) = e'$, the fact than $\phi(e) = e'$ proves that $a = e$. Therefore $\ker\phi = \{e\}$. Conversely, if we know $\ker\phi = \{e\}$, suppose that $\phi(a) = \phi(b)$. Then we have
+\begin{align*}
+    \phi(a)\inv{\phi(b)} &= e' \\
+    \phi(a)\phi(\inv b) &= e' \\
+    \phi(a \inv b) &= e' \\
+\end{align*}
+Therefore $a\inv b \in \ker\phi$, so $a\inv b = e$. Multiplying on the right by $b$, we see that $a = b$, so $\phi$ is injective.
+\end{proof}
+
+We \extra know that $\phi(G)$ is a subgroup of $G'$ for any homomorphism $\phi: G \to G'$. Since $\phi$ definitely maps $G$ \textit{onto} $\phi(G)$, this means that $G$ is actually isomorphic to $\phi(G)$ if and only if $\phi$ is injective, that is, if and only if $\ker\phi = \{e\}$. While not strictly useful for our purposes, this shows some of the power of kernels of homomorphisms. This theme will be expanded upon through the rest of this document.

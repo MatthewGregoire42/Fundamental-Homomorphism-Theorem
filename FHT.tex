@@ -53,14 +53,16 @@
 
 \renewcommand\qedsymbol{$\blacksquare$}
 
+\numberwithin{figure}{section}
+
 \theoremstyle{definition}
-\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}[figure]{Theorem}
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
+\newtheorem{definition}[figure]{Definition}
 \theoremstyle{definition}
-\newtheorem{example}[theorem]{Example}
+\newtheorem{example}[figure]{Example}
 \theoremstyle{definition}
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{corollary}[figure]{Corollary}
 
 \reversemarginpar
 
