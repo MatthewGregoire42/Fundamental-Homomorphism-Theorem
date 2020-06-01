@@ -4,7 +4,7 @@ First, here are the basic preliminaries we need to start talking about groups.
 
 \begin{definition}
 \label{binaryoperation}
-Let $G$ be a set. A \textbf{binary operation} on $G$ is a function $*: G \times G \to G$.
+Let $G$ be a set. A \textbf{binary operation} $*$ on $G$ is a function from $G \times G$ to $G$.
 \end{definition}
 
 If in $G$, we have $*(a, b) = c$, we usually write $a * b = c$. In fact, we can often drop the operation symbol and write this as $ab = c$, if no confusion will result. For now, we'll continue explicitly writing the operation for clarity.
@@ -19,14 +19,14 @@ A \textbf{group} is a set G along with a binary operation $*$ that satisfies the
 \end{itemize}
 \end{definition}
 
-We'll give a few examples of groups to get a feel for their structure.
+For the sake of consistency, we'll tend to use $e$ as the identity symbol in a general group, unless stated otherwise. We'll give a few examples of groups to get a feel for their structure.
 
 \begin{example}
 The integers $\z$ under the usual addition ($+$) form a group. The element $0$ acts as the identity, and for any $a \in \z$, $-a$ acts as its additive inverse. Addition is associative, so this is indeed a group. For similar reasons, the sets $\mathbb{Q}$, $\mathbb{R}$, and $\mathbb{C}$ are also groups under addition.
 \end{example}
 
 \begin{example}
-The integers $\zn[n]$ of remainders modulo $n$ also form a group under addition. We'll be pedantically formal here for the sake of demonstrating the group axioms. The elements of $\zn[n]$ are defined as the integers $x$ such that $0 \leq x < n$, and addition within $\zn[n]$, for now given the symbol $\tilde +$, is defined as follows: if $a + b = nq + r$ in $\z$ by the division algorithm, then $a \np b = r$ in $\zn[n]$. Since $0 \leq r < n$, this is also an element of $\zn[n]$, so this is a well-defined binary operation.
+The integers $\zn[n]$ of remainders modulo $n$ also form a group under addition. We'll be pedantically formal here for the sake of demonstrating the group axioms. The elements of $\zn[n]$ are defined as the integers $x$ such that $0 \leq x < n$, and addition within $\zn[n]$, for now given the symbol $\tilde +$, is defined as follows: if $a + b = nq + r$ in $\z$ by the division algorithm, then $a \np b = r$ in $\zn[n]$. Since $0 \leq r < n$, this is also an element of $\zn[n]$, so $\tilde{+}$ is a well-defined binary operation.
 
 $0$ is again the identity, because $a + 0 = 0 + a = n\cdot 0 + a$, so $a \np 0 = 0 \np a = a$. Also, the equation $a + (n-a) = (n-a) + a = n\cdot 1 + 0$ shows that $n-a$ is the inverse of $a$. Finally, to show associativity, just note that $a + (b + c) = (a + b) + c$ is true for any integers $a$, $b$, and $c$, so therefore adding any elements $a, b, c \in \zn[n]$ must yield the same remainder.
 \end{example}
@@ -40,24 +40,18 @@ Let $G$ be a group with a binary operation $*$. Then for all $a, b, c \in G$, $a
 \end{theorem}
 
 \begin{proof}
-Suppose that $a*b = a*c$. We know there exists $\inv{a} \in G$, so therefore:
-
-\begin{center}
-    $\inv{a} * (a*b) = \inv{a} * (a*c)$
-\end{center}
-
-By the associative property:
-
-\begin{center}
-    $(\inv{a} * a) * b = (\inv{a} * a) * c$
-\end{center}
-
-By definition of $\inv{a}$:
-
-\begin{center}
-    $e * b = e * c$
-\end{center}
-
+Suppose that $a*b = a*c$. We know there exists $\inv{a} \in G$, so therefore
+\begin{equation*}
+    \inv{a} * (a*b) = \inv{a} * (a*c).
+\end{equation*}
+By the associative property,
+\begin{equation*}
+    (\inv{a} * a) * b = (\inv{a} * a) * c.
+\end{equation*}
+By definition of $\inv{a}$,
+\begin{equation*}
+    e * b = e * c.
+\end{equation*}
 And finally, by definition of $e$, we have $b = c$. Similarly, if $b*a = c*a$, then $(b*a)*\inv{a} = (c*a)*\inv{a}$. Therefore $b*(a*\inv{a}) = c*(a*\inv{a})$, and $b*e = c*e$, or $b = c$.
 
 \end{proof}
@@ -69,13 +63,13 @@ Let $G$ be a group. There is a unique identity element $e \in G$ such that $e*a 
 \begin{proof}
 Suppose that $e$ and $e'$ are both elements of $G$ that act as an identity. Then we have $e = e*e'$, using $e'$ as the identity. But we also have $e*e' = e'$, using $e$ as the identity. Therefore $e = e'$.
 
-Now let $a \in G$. If $a*\inv{a} = \inv{a}*a = e$, and also $a*\inv{\tilde{a}} = \inv{\tilde{a}}*a = e$, then we have:
+Now let $a \in G$. If $a*\inv{a} = \inv{a}*a = e$, and also $a*a' = a'*a = e$, then we have
 
-\begin{center}
-    $a*\inv{a} = e = a*{\inv{\tilde{a}}}$
-\end{center}
+\begin{equation*}
+    a*\inv{a} = e = a*a'.
+\end{equation*}
 
-And by cancellation, $\inv{a} = \inv{\tilde{a}}$. For the last property, we only need to note that $\left(\inv{a}\right)^{-1}$ is (by definition) the unique element in $G$ such that $\left(\inv{a}\right)^{-1} * \inv{a} = \inv{a} * \left(\inv{a}\right)^{-1} = e$. By the equation $a * \inv{a} = \inv{a} * a = e$, we see that this unique element is indeed $a$.
+And by cancellation, $\inv{a} = a'$. For the last property, we only need to note that $\left(\inv{a}\right)^{-1}$ is (by definition) the unique element in $G$ such that $\left(\inv{a}\right)^{-1} * \inv{a} = \inv{a} * \left(\inv{a}\right)^{-1} = e$. By the equation $a * \inv{a} = \inv{a} * a = e$, we see that this unique element is indeed $a$.
 
 \end{proof}
 
@@ -96,16 +90,15 @@ The familiar properties of addition show that $\z$, $\mathbb{Q}$, $\mathbb{R}$, 
 \begin{example}
 Let $F$ be the set of all invertible functions from $\mathbb{R}$ to $\mathbb{R}$, and consider the operation of function composition defined on $F$. Here $i(x) = x$ serves as the identity function, and each function in $F$ has an inverse in $F$ by construction. Composition of invertible functions is associative as well. Finally, if $f, g \in F$, then $\inv{(f \circ g)} = \inv g \circ \inv f$, because: 
 \begin{align*}
-\left[(f \circ g) \circ \left(\inv g \circ \inv f\right)\right]x &= f\left(g\left(\inv g\left(\inv f \left(x\right)\right)\right)\right) \\
- &= f\left(\left(g \circ \inv g\right)\left(\inv f(x)\right)\right) \\
- &= f\left(i\left(\inv f(x)\right)\right) \\
- &= \left(f \circ \inv f\right)(x) \\
- &= i(x)\mathrm{,}
+\left[(f \circ g) \circ \left(\inv g \circ \inv f\right) \right](x) &= \left[f \circ \left(g \circ \inv g\right) \circ \inv f \right](x) \\
+&= \left[f \circ i \circ \inv f\right](x) \\
+&= \left[f \circ \inv f\right](x) \\
+&= i(x)\mathrm{,}
 \end{align*}
-which is the identity map. It can be similarly shown that $\inv g \circ \inv f$ is the left inverse of $f \circ g$ as well. Therefore $F$ forms a group under function composition. Take $f(x) = x+1$ and $g(x) = x^3$. Both of these are invertible functions. We also see that $(f \circ g)(x) = x^3 + 1$, while $(g \circ f)(x) = (x+1)^3$. Therefore $F$ is not an abelian group.
+which is the identity map. It can be similarly shown that $\inv g \circ \inv f$ is the left inverse of $f \circ g$ as well. Therefore $F$ forms a group under function composition. Take $f(x) = x+1$ and $g(x) = x^3$. Both of these are invertible functions. We also see that function composition is not necessarily commutative, because $(f \circ g)(x) = x^3 + 1$, while $(g \circ f)(x) = (x+1)^3$. Therefore $F$ is not an abelian group.
 \end{example}
 
-Now \extra to get more of a feel for the structure of a group, we can introduce \textbf{Cayley tables} (or \textbf{Cayley diagrams}) for finite groups. The Cayley table for $\zn[4]$ is given in Figure \ref{z4}. The rows and columns are titled with elements of the group, and in row $a$ and column $b$ we put the element $a + b$. Note that this is the same as $b + a$ because $\zn[4]$ is abelian, but this is not always the case. For a general group, the entry in row $a$ and column $b$ could be different from the entry in row $b$ and column $a$.
+Now \extra to get more of a feel for the structure of a group, we can introduce \textbf{Cayley tables} for finite groups. The Cayley table for $\zn[4]$ is given in Figure \ref{z4}. The rows and columns are titled with elements of the group, and in row $a$ and column $b$ we put the element $a + b$. Note that the entry $a + b$ is the same as $b + a$ because $\zn[4]$ is abelian, but this is not always the case. For a general group, the entry in row $a$ and column $b$ could be different from the entry in row $b$ and column $a$.
 
 \begin{figure}[ht]
 \centering
