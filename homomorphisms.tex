@@ -18,7 +18,7 @@ The important thing to realize here is that the multiplication on the left-hand 
 
 \begin{example}
 \label{zn_homomorphism}
-Consider the groups $\z$ and $\zn[n]$ under addition. We claim that the map $\phi: \z \to \zn[n]$ taking every integer $x$ to its remainder when divided by $n$ is a homomorphism. We only have to check the above property. If $a = q_1n + r_1$ and $b = q_2n + r_2$ using the division algorithm, then
+Consider the groups $\z$ and $\zn[n]$ under addition. Note that both of these groups use additive notation. We claim that the map $\phi: \z \to \zn[n]$ taking every integer $x$ to its remainder when divided by $n$ is a homomorphism. We only have to check the above property. If $a = q_1n + r_1$ and $b = q_2n + r_2$ using the division algorithm, then
 \begin{align*}
     a + b &= q_1n + r_1 + q_2n + r_2 \\
           &= (q_1 + q_2)n + (r_1 + r_2),
@@ -28,7 +28,7 @@ but $r_1 + r_2$ may be greater than $n$. So if $r_1 + r_2 = q_3n + r_3$, then
     a + b &= (q_1 + q_2)n + (q_3n + r_3)  \\
           &= (q_1 + q_2 + q_3)n + r_3.
 \end{align*}
-Therefore $\phi(a + b) = r_3$. (Note that both of these groups use additive notation.) But we also have $\phi(a) = r_1$ and $\phi(b) = r_2$. Since $\phi(a) + \phi(b)$ is an addition in $\zn[n]$, it's the remainder of $r_1 + r_2$ when divided by $n$, which was defined above to be $r_3$. Therefore $\phi(a) + \phi(b) = r_3 = \phi(a + b)$, so $\phi$ is a homomorphism.
+Therefore $\phi(a + b) = r_3$. But we also have $\phi(a) = r_1$ and $\phi(b) = r_2$. Since $\phi(a) + \phi(b)$ is an addition in $\zn[n]$, it's the remainder of $r_1 + r_2$ when divided by $n$, which was defined above to be $r_3$. Therefore $\phi(a) + \phi(b) = r_3 = \phi(a + b)$, so $\phi$ is a homomorphism.
 \end{example}
 
 The next theorems will show a few ways in which the structure of $G$ is mapped onto the structure of $G'$ under a homomorphism.
@@ -44,13 +44,13 @@ Let $G$ and $G'$ be groups, and let $\phi: G \to G'$ be a homomorphism. Then the
 \end{theorem}
 
 \begin{proof}
-Let $a \in G$. By our group axioms and application of the homomorphism property, we have:
+Let $a \in G$. By our group axioms and application of the homomorphism property, we have
 \begin{equation*}
-    e'\phi(a) = \phi(a) = \phi(ea) = \phi(e)\phi(a)
+    e'\phi(a) = \phi(a) = \phi(ea) = \phi(e)\phi(a).
 \end{equation*}
 Therefore by cancellation, $e' = \phi(e)$.
 
-For the second property, note that $\inv{\phi(a)}$ is the unique element of $G'$ such that $\inv{\phi(a)}\phi(a) = \phi(a)\inv{\phi(a)} = e'$. But we also have the following:
+For the second property, note that $\inv{\phi(a)}$ is the unique element of $G'$ such that $\inv{\phi(a)}\phi(a) = \phi(a)\inv{\phi(a)} = e'$. But we also have the following.
 \begin{equation*}
     e' = \phi(e) = \phi(a\inv{a}) = \phi(a)\phi(\inv a)
 \end{equation*}
@@ -60,9 +60,9 @@ For the second property, note that $\inv{\phi(a)}$ is the unique element of $G'$
 
 Therefore we have $\inv{\phi(a)} = \phi(\inv a)$.
 
-Now let $H$ be a subgroup of $G$. First, we know $e \in H$, so therefore $\phi(e) = e' \in \phi(H)$. Let $h', g' \in \phi(H)$. So there exist $h, g \in H$ such that $\phi(h) = h'$ and $\phi(g) = g'$. Because $H$ is a subgroup, $\inv h \in H$, and therefore $\phi(\inv h) = \inv{\phi(h)} = \inv{h'} \in \phi(H)$, so $H'$ is closed under inverses. And because $\phi$ is a homomorphism:
+Now let $H$ be a subgroup of $G$. First, we know $e \in H$, so therefore $\phi(e) = e' \in \phi(H)$. Let $h', g' \in \phi(H)$. So there exist $h, g \in H$ such that $\phi(h) = h'$ and $\phi(g) = g'$. Because $H$ is a subgroup, $\inv h \in H$, and therefore $\phi(\inv h) = \inv{\phi(h)} = \inv{h'} \in \phi(H)$, so $H'$ is closed under inverses. And because $\phi$ is a homomorphism,
 \begin{equation*}
-    h'g' = \phi(h)\phi(g) = \phi(hg)
+    h'g' = \phi(h)\phi(g) = \phi(hg).
 \end{equation*}
 
 But $H$ is a subgroup of $G$, so $hg \in H$, which implies that $h'g' \in \phi(H)$. Therefore $\phi(H)$ is a subgroup of $G'$.
@@ -71,7 +71,7 @@ Finally, let $H'$ be a subgroup of $G'$. We need to show that $\inv \phi (H')$ i
 
 \end{proof}
 
-Great! So we can see that homomorphisms (loosely speaking) take identities to identities, inverses to inverses, and subgroups to subgroups. This means we're justified in describing them as maps that preserve structure. There's in fact a stricter kind of structure-preserving map between groups, described in the definition below.
+Great! So we can see that homomorphisms (loosely speaking) take identities to identities, inverses to inverses, and subgroups to subgroups. This means we're justified in describing them as maps that preserve structure. There is in fact a stricter kind of structure-preserving map between groups, described in the definition below.
 
 \begin{definition}
 Let $G$ and $G'$ be groups. We say a map $\phi: G \to G'$ is a \textbf{group isomorphism} if it is a homomorphism and a bijection.
