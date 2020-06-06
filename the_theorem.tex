@@ -20,7 +20,7 @@ so the homomorphism property is satisfied. Suppose that $\mu(aK) = \mu(bK).$ The
     \phi(a)\phi(\inv b) &= e' \\
     \phi(a\inv b) &= e'\mathrm{.}
 \end{align*}
-Therefore $a\inv \in \ker(\phi) = K$. By Theorem \ref{cosets}, this implies that $aK = bK$, so $\mu$ is injective. Now let $\phi(a) \in \phi(G)$. Clearly $\mu(aK) = \phi(a)$, so $\mu$ is also surjective. Therefore $\mu$ is indeed an isomorphism.
+Therefore $a\inv b \in \ker(\phi) = K$. By Theorem \ref{cosets}, this implies that $aK = bK$, so $\mu$ is injective. Now let $\phi(a) \in \phi(G)$. Clearly $\mu(aK) = \phi(a)$, so $\mu$ is also surjective. Therefore $\mu$ is indeed an isomorphism.
 
 To check final property, let $a \in G$. Then $\mu(\gamma(a)) = \mu(aK) = \phi(a)$, so the theorem is proven.
 
@@ -34,7 +34,7 @@ Essentially this proof tells us the following: if we are given a homomorphism $\
 \end{tikzcd}
 \end{center}
 
-Then we can always ``factor'' this map as the isomorphism $\mu$ applied to the surjecive map $\gamma$. We can also consider the identity map $\lambda: \phi(G) \to G'$ defined by $\lambda(\phi(a)) = \phi(a)$ trivially as an injective homomorphism between $\phi(G)$ and $G'$. So we can ``factor'' $\phi$ completely as:
+Then we can always ``factor'' this map as the isomorphism $\mu$ applied to the surjecive map $\gamma$. We can also consider the identity map $\lambda: \phi(G) \to G'$ defined by $\lambda(\phi(a)) = \phi(a)$ as a trivial injective homomorphism between $\phi(G)$ and $G'$. So we can ``factor'' $\phi$ completely as:
 
 \begin{center}
 \begin{tikzcd}[column sep=large]
@@ -43,7 +43,7 @@ Then we can always ``factor'' this map as the isomorphism $\mu$ applied to the s
 \end{center}
 
 \begin{example}
-Let $\phi$ be the homomorphism from $\z$ to $\zn[4]$ defined in Example \ref{zn_homomorphism}. We know that the kernel of $\phi$ is $4\z$, and also $\phi$ clearly maps $\z$ onto $\zn[4]$. Therefore by the fundamental homomorphism theorem, $\z/4\z$ is isomorphic to $\zn[4]$. This is the elegant algebraic way to \textit{define} $\zn[4]$, as a group of cosets of $4\z$ (which are also congruence classes of $\z$).
+Let $\phi$ be the homomorphism from $\z$ to $\zn[4]$ defined in Example \ref{zn_homomorphism}. We know that the kernel of $\phi$ is $4\z$, and also $\phi$ clearly maps $\z$ onto $\zn[4]$. Therefore by the fundamental homomorphism theorem, $\z/4\z$ is isomorphic to $\zn[4]$. This is the elegant algebraic way to \textit{define} $\zn[4]$, as a group of cosets of $4\z$ (which are also congruence classes of $\z$ modulo $4$).
 \end{example}
 
 \begin{example}

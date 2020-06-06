@@ -84,7 +84,7 @@ Consider the groups $\zn[3]$ and the subgroup $H = \{e, \rho_1, \rho_2\}$ of $D_
 \begin{align*}
     \phi(0) &= e & \phi(1) &= \rho_1 & \phi(2) &= \rho_2
 \end{align*}
-is an isomorphism. It's clearly a bijection, and we only have to check that it's a homomorphism. There are simpler ways to check this, but the group is small enough that we can simply test every possible input to $\phi$. It helps that we know $\zn[3]$ is abelian, so we can reduce the number of inputs to check by half. We can also check by looking at the Cayley table in Figure \ref{cayleyD3} that $H$ is also abelian.
+is an isomorphism. It's clearly a bijection, and we only have to check that it's a homomorphism. There are simpler ways to check this, but the group is small enough that we can test every possible input to $\phi$. It helps that we know $\zn[3]$ is abelian, so we can reduce the number of inputs to check by half. We can also check by looking at the Cayley table in Figure \ref{cayleyD3} that $H$ is also abelian.
 
 \begin{center}
     \begin{tabular}{c c c c c c c}
@@ -119,18 +119,18 @@ If $\phi: G \to G'$ is a group homomorphism, then $\ker\phi$ is a normal subgrou
 
 \begin{proof}
 Clearly $e \in \ker\phi$, because $\phi(e) = e'$. If $a, b \in \ker\phi$, then
-\begin{center}
-    $\phi(\inv a) = \inv{\phi(a)} = \inv{e'} = e'$,
-\end{center}
+\begin{equation*}
+    \phi(\inv a) = \inv{\phi(a)} = \inv{e'} = e',
+\end{equation*}
 so $\inv a$ is also in $\ker\phi$. Also, by the homomorphism property,
-\begin{center}
-    $\phi(ab) = \phi(a)\phi(b) = e'e' = e'$,
-\end{center}
+\begin{equation*}
+    \phi(ab) = \phi(a)\phi(b) = e'e' = e',
+\end{equation*}
 so $\ker\phi$ is a subgroup of $G$. To show that it's normal, let $g \in G$ and $k \in \ker\phi$. Then we have
-\begin{center}
-    $\phi(gk\inv g) = \phi(g)\phi(k)\phi(\inv g) = \phi(g) e' \inv{\phi(g)} = e'$,
-\end{center}
-So $gk\inv g$ is in $\ker\phi$ as well.
+\begin{equation*}
+    \phi(gk\inv g) = \phi(g)\phi(k)\phi(\inv g) = \phi(g) e' \inv{\phi(g)} = e',
+\end{equation*}
+so $gk\inv g$ is in $\ker\phi$ as well.
 
 \end{proof}
 
@@ -149,7 +149,7 @@ Suppose that $\phi$ is injective. Then if $\phi(a) = e'$, the fact than $\phi(e)
 \begin{align*}
     \phi(a)\inv{\phi(b)} &= e' \\
     \phi(a)\phi(\inv b) &= e' \\
-    \phi(a \inv b) &= e' \\
+    \phi(a \inv b) &= e'.
 \end{align*}
 Therefore $a\inv b \in \ker\phi$, so $a\inv b = e$. Multiplying on the right by $b$, we see that $a = b$, so $\phi$ is injective.
 \end{proof}
