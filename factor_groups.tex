@@ -32,11 +32,11 @@ Similarly, let $x \in Ha$. By the same reasoning, we have
 \end{align*}
 Therefore $\inv a x = h$ for some $h \in H$, which means that $x = ah \in aH$, so $Ha \subseteq aH$. Therefore $aH = Ha$, and $H$ is normal.
 
-Conversely, suppose that $H$ is normal. We need to show that coset multiplication is well-defined. Let $aH$ and $bH$ be cosets, and let $ah_1 \in aH$ and $ah_2 \in bH$. Then our operation states that $(ah_1)H(bh_2)H = (ah_1bh_2)H$. Because $H$ is normal, we know that $Hb = bH$, so $h_1 b = b h_3$ for some $h_3 \in H$. Therefore, $a\left(h_1b\right) h_2 = ab h_3 h_2$. So we have:
+Conversely, suppose that $H$ is normal. We need to show that coset multiplication is well-defined. Let $aH$ and $bH$ be cosets, and let $ah_1 \in aH$ and $ah_2 \in bH$. Then our operation states that $(ah_1)H(bh_2)H = (ah_1bh_2)H$. Because $H$ is normal, we know that $Hb = bH$, so $h_1 b = b h_3$ for some $h_3 \in H$. Therefore, $a\left(h_1b\right) h_2 = ab h_3 h_2$. So we have
 \begin{align*}
     \left(ah_1 H\right)\left(bh_2 H\right) &= \left(ah_1bh_2 H\right) \\
     &= ab\left(h_3 h_2\right)H \\
-    &= ab H
+    &= ab H.
 \end{align*}
 This means coset multiplication doesn't depend on choices of representatives, and is therefore well-defined.
 
@@ -57,7 +57,7 @@ while choosing different representatives, we have
 \begin{align*}
     \left(\mu_3H\right)\left(\rho_2H\right) &= \left(\mu_3 \rho_2\right)H \\
     &= \mu_1 H \\
-    &\neq H
+    &\neq H.
 \end{align*}
 From this example we can see that choosing different representatives of the cosets actually changes the output! So coset multiplication of $H$ is indeed not well-defined.
 \end{example}
