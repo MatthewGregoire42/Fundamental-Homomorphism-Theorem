@@ -46,18 +46,18 @@ Suppose that $a*b = a*c$. We know there exists $\inv{a} \in G$, so therefore
 \end{equation*}
 By the associative property,
 \begin{equation*}
-    (\inv{a} * a) * b = (\inv{a} * a) * c.
+    \left(\inv{a} * a\right) * b = \left(\inv{a} * a\right) * c.
 \end{equation*}
 By definition of $\inv{a}$,
 \begin{equation*}
     e * b = e * c.
 \end{equation*}
-And finally, by definition of $e$, we have $b = c$. Similarly, if $b*a = c*a$, then $(b*a)*\inv{a} = (c*a)*\inv{a}$. Therefore $b*(a*\inv{a}) = c*(a*\inv{a})$, and $b*e = c*e$, or $b = c$.
+And finally, by definition of $e$, we have $b = c$. Similarly, if $b*a = c*a$, then $(b*a)*\inv{a} = (c*a)*\inv{a}$. Therefore $b*\left(a*\inv{a}\right) = c*\left(a*\inv{a}\right)$, and $b*e = c*e$, or $b = c$.
 
 \end{proof}
 
 \begin{theorem}
-Let $G$ be a group. There is a unique identity element $e \in G$ such that $e*a = a*e = a$ for all $a \in G$. Similarly, for $a \in G$, there is a unique element $\inv{a} \in G$ such that $a*\inv{a} = \inv{a}*a = e$. Also $\left(\inv{a}\right)^{-1} = a$, that is, the inverse of $\inv a$ is $a$.
+Let $G$ be a group with a binary operation $*$. There is a unique identity element $e \in G$ such that $e*a = a*e = a$ for all $a \in G$. Similarly, for $a \in G$, there is a unique element $\inv{a} \in G$ such that $a*\inv{a} = \inv{a}*a = e$. Also $\left(\inv{a}\right)^{-1} = a$, that is, the inverse of $\inv a$ is $a$.
 \end{theorem}
 
 \begin{proof}
@@ -73,7 +73,7 @@ And by cancellation, $\inv{a} = a'$. For the last property, we only need to note
 
 \end{proof}
 
-Now, most operations we're familiar with are not simply associative. They have other nice properties as well. The next few definitions solidify one of these properties, which should be fairly intuitive.
+Now, most operations we're familiar with have other nice properties, besides being simply associative. The next few definitions solidify one of these properties, which should be fairly intuitive.
 
 \begin{definition}
 Let $*$ be a binary operation on a set $A$. \extra If for all $a, b \in A$, we have $a * b$ = $b * a$, then $*$ is a \textbf{commutative} operation.
@@ -95,7 +95,7 @@ Let $F$ be the set of all invertible functions from $\mathbb{R}$ to $\mathbb{R}$
 &= \left[f \circ \inv f\right](x) \\
 &= i(x)\mathrm{,}
 \end{align*}
-which is the identity map. It can be similarly shown that $\inv g \circ \inv f$ is the left inverse of $f \circ g$ as well. Therefore $F$ forms a group under function composition. Take $f(x) = x+1$ and $g(x) = x^3$. Both of these are invertible functions. We also see that function composition is not necessarily commutative, because $(f \circ g)(x) = x^3 + 1$, while $(g \circ f)(x) = (x+1)^3$. Therefore $F$ is not an abelian group.
+which is the identity map. It can be similarly shown that $\inv g \circ \inv f$ is the left inverse of $f \circ g$ as well. Therefore the composition of invertible functions is again invertible, and $F$ forms a group under function composition. But composition of functions is not commutative in general. Consider the invertible functions $f(x) = x+1$ and $g(x) = x^3$. Both of these are invertible functions, but we have $(f \circ g)(x) = x^3 + 1$, while $(g \circ f)(x) = (x+1)^3$. Therefore $F$ is not an abelian group.
 \end{example}
 
 Now \extra to get more of a feel for the structure of a group, we can introduce \textbf{Cayley tables} for finite groups. The Cayley table for $\zn[4]$ is given in Figure \ref{z4}. The rows and columns are titled with elements of the group, and in row $a$ and column $b$ we put the element $a + b$. Note that the entry $a + b$ is the same as $b + a$ because $\zn[4]$ is abelian, but this is not always the case. For a general group, the entry in row $a$ and column $b$ could be different from the entry in row $b$ and column $a$.
@@ -133,9 +133,7 @@ This might seem a strange thing to consider. But now we ask ourselves: how we ca
 \label{d3}
 \end{figure}
 
-From left to right and top to bottom as shown in Figure \ref{d3}, let's give these transformations of the triangle the names $e$, $\rho_1$, $\rho_2$, $\mu_1$, $\mu_2$, and $\mu_3$ respectively, where $\rho$ and $\mu$ are suggesting \textit{rotations} and \textit{mirrorings}, respectively. The crucial step is to \textit{consider these transformations as elements of a group}, where the group operation is composition of transformations. This is a well-defined binary operation, because these six positions exhaust all possible orientations of the vertices. Therefore every two transformations applied in succession will result in another positioning of vertices listed above. Here $e$ acts as the identity element. It's easy to see that the two opposite rotations are inverses of each other, and each reflection is its own inverse. Finally, each transformation can be viewed in a natural way as a bijection between $\{1, 2, 3\}$ and itself: just take the image of $i$ as the label of the vertex that lands in position $i$. The composition of bijections from a set to itself is associative, so composition of transformations is associative. Therefore this set is a group under composition. We'll call this group $D_3$, the \textbf{dihedral group on 3 vertices}.
-
-Last but not least, the Cayley table for $D_3$ is shown in Figure \ref{cayleyD3}. Notice that this group is nonabelian, as promised! This group has many interesting symmetries, and will serve as our prototypical example of a nonabelian group.
+From left to right and top to bottom as shown in Figure \ref{d3}, let's give these transformations of the triangle the names $e$, $\rho_1$, $\rho_2$, $\mu_1$, $\mu_2$, and $\mu_3$ respectively, where $\rho$ and $\mu$ are suggesting \textit{rotations} and \textit{mirrorings}, respectively. The crucial step is to consider these transformations as elements of a group, where the group operation is composition of transformations. This is a well-defined binary operation, because these six positions exhaust all possible orientations of the vertices. Therefore every two transformations applied in succession will result in another positioning of vertices listed above. Here $e$ acts as the identity element. It's easy to see that the two opposite rotations are inverses of each other, and each reflection is its own inverse. Finally, each transformation can be viewed in a natural way as a bijection between $\{1, 2, 3\}$ and itself: just take the image of $i$ as the label of the vertex that lands in position $i$. We know that function composition is associative, so composition of transformations is also associative. Therefore this set is a group under composition. We'll call this group $D_3$, the \textbf{dihedral group on 3 vertices}. In fact, symmetries of a regular $n$-gon will always form a group, denoted $D_n$.
 
 \begin{figure}[ht]
 \centering
@@ -152,3 +150,5 @@ Last but not least, the Cayley table for $D_3$ is shown in Figure \ref{cayleyD3}
 \caption{Cayley table for $D_3$.}
 \label{cayleyD3}
 \end{figure}
+
+Last but not least, the Cayley table for $D_3$ is shown in Figure \ref{cayleyD3}. Notice that this group is nonabelian, as promised! This group has many interesting symmetries, and will serve as our prototypical example of a nonabelian group.
