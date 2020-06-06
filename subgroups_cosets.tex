@@ -1,6 +1,6 @@
 \section{Subgroups and Cosets}
 
-From here on out, we'll use multiplicative notation exclusively when discussing group operations. Also, constantly specifying the name of a group's operation can get tedious, so by abuse of notation, we can feel free to refer to a group $G$ by itself. When we do this, it's implied that $G$ has an associated operation that satisfies the group axioms. Since it's still convenient to give this operation a name, we might as well call it multiplication in most cases. And finally, since every group operation is associative, we can drop parentheses in any expression for clarity. For our purposes, these notation decisions shouldn't cause any confusion or ambiguity.
+From here on out, we'll almost exclusively use multiplicative notation when discussing group operations. Also, constantly specifying the name of a group's operation can get tedious, so by abuse of notation, we can feel free to refer to a group $G$ by itself. When we do this, it's implied that $G$ has an associated operation that satisfies the group axioms. Since it's still convenient to give this operation a name, we might as well call it multiplication in most cases. And finally, since every group operation is associative, we can drop parentheses in any expression for clarity. For our purposes, these notation decisions shouldn't cause any confusion or ambiguity.
 
 Subgroups are a somewhat natural extension from the concept of groups. The formal definition is given below.
 
@@ -11,7 +11,7 @@ Let $G$ be a group, and let $H \subseteq G$. If under the binary operation of $G
 An important and related concept is closure under a specified binary operation.
 
 \begin{definition}
-Let $*$ be a binary operation of a set $G$, and let $H \subseteq G$. If for all $a, b \in H$, $a*b$ is also in $H$, then $H$ is \textbf{closed under}, or \textbf{has closure under}, the operation $*$.
+Let $*$ be a binary operation defined on a set $A$, and let $B \subseteq A$. If for all $a, b \in B$, $a*b$ is also in $B$, then $B$ is \textbf{closed under}, or \textbf{has closure under}, the operation $*$.
 \end{definition}
 
 In order for $H$ to be a subgroup of $G$, $H$ needs to satisfy the group axioms. This makes the next theorem feel somewhat tautological, but it provides a methodical way to check if a given subset $H$ is indeed a subgroup of $G$.
@@ -34,7 +34,7 @@ Conversely, suppose that the above properties hold for a subset $H$ of $G$. Sinc
 \end{proof}
 
 \begin{example}
-If $G$ is any group, the set $\{e\}$ containing only the identity, with binary operation $e*e = e$, is always a subgroup of $G$ that quickly satisfies the requirements of Theorem \ref{subgroup}. This is sometimes called the \textbf{trivial subgroup} of $G$. Moreover, $G$ is also a subgroup of itself. This is called the \textbf{improper subgroup} of $G$.
+If $G$ is any group, the set $\{e\}$ containing only the identity, with binary operation $e*e = e$, is always a subgroup of $G$ that quickly satisfies the requirements of Theorem \ref{subgroup}. This is sometimes called the \textbf{trivial subgroup} of $G$. Moreover, $G$ is also a subgroup of itself, the \textbf{improper subgroup} of $G$.
 \end{example}
 
 \begin{example}
@@ -46,14 +46,14 @@ Take the set $\{\dots, -8, -4, 0, 4, 8, \dots\} \subseteq \z$ consisting of all 
 Take within $D_3$ the subset $\{e, \rho_1, \rho_2\}$ of the rotations and the identity (a trivial rotation). By examining the Cayley table in Figure \ref{cayleyD3}, we see that this set is closed under composition and inverses, and is thus a subgroup of $D_3$. By a similar argument, the subset $\{e, \mu_1\}$ is also a subgroup of $D_3$.
 \end{example}
 
-Subgroups also naturally give rise to a discussion of cosets.
+Subgroups also naturally give rise to discussion of cosets.
 
 \begin{definition}
 Let $H$ be a subgroup of a group $G$, and let $a \in G$. The set $\{ah \,|\, h \in H\}$, denoted $aH$, is a subset of $G$. We call this the \textbf{left coset} of $H$ containing $a$. Similarly, the set $Ha = \{ha \,|\, h \in H\}$ is called the \textbf{right coset} of $H$ containing $a$.
 \end{definition}
 
 \begin{example}
-Take the group $\z$ and its subgroup $4\z$. Here, note that we'll write cosets in additive notation, because these groups are written in additive notation. We have:
+Take the group $\z$ and its subgroup $4\z$. Here, note that we'll write cosets in additive notation, because these groups are written in additive notation. The cosets are given below.
 \begin{align*}
     0 + 4\z &= \{\dots, -8, -4, 0, 4, 8, \dots\} \\
     1 + 4\z &= \{\dots, -7, -3, 1, 5, 9, \dots\} \\
@@ -73,7 +73,7 @@ Consider $D_3$ and its subgroup $H = \{e, \mu_1\}$. The left cosets of $H$ are a
 We can also verify (using the Cayley table in Figure \ref{cayleyD3}) that these left cosets are unique. That is, $\mu_2H = \rho_1H$, and $\mu_3H = \rho_2H$. We will prove that this is true in general in Theorem \ref{cosets}.
 \end{example}
 
-The following theorems and proofs involving left cosets have symmetrical theorems and proofs involving right cosets. For this document we'll mostly deal with left cosets, but this is only done for simplicity. Right cosets have corresponding properties. Cosets have a number of interesting properties, but proofs about properties of cosets usually aren't illuminating by themselves. Therefore, it's important to have a good intuition for some of their basic properties. We'll give a few of these properties in the following theorems.
+The following theorems and proofs involving left cosets have symmetrical theorems and proofs involving right cosets. For this document we'll mostly deal with left cosets, but this is only done for simplicity. Right cosets have corresponding properties. Cosets have a number of interesting properties, but the next few proofs  aren't illuminating by themselves. Therefore it's far more important to have a good intuition for some of their basic properties than to remember all the mechanics of the proofs.
 
 \begin{theorem}
 \label{cosets}
@@ -125,7 +125,7 @@ If \extra $H$ is a subgroup of $G$, then every left coset of $H$ has the same ca
 \end{theorem}
 
 \begin{proof}
-Let $aH$ be a coset of $H$. We'll find a bijection between $H$ and $aH$, namely, the map defined by $f(x) = ax$. Suppose that $f(g) = f(h)$. Then $ag = ah$, and by cancellation, $g=h$, so $f$ is an injection. And clearly if $y \in aH$, then $y = ah$ for some $h \in H$, so $f(h) = ah = y$. So y is surjective, and therefore a bijection.
+Let $aH$ be a coset of $H$. We'll find a bijection between $H$ and $aH$, namely, the map defined by $f(x) = ax$. Suppose that $f(g) = f(h)$. Then $ag = ah$, and by cancellation, $g=h$, so $f$ is an injection. And clearly if $y \in aH$, then $y = ah$ for some $h \in H$, so $f(h) = ah = y$. So $f$ is surjective, and therefore a bijection.
 \end{proof}
 
 \begin{definition}
@@ -137,7 +137,7 @@ Let \extra $G$ be a finite group. If $H$ is a subgroup of $G$, then the order of
 \end{theorem}
 
 \begin{proof}
-By Theorem \ref{cosetpartition}, the cosets of $H$ partition $G$. And by Theorem \ref{cosetsize}, each coset of $H$ has size $|H|$. If there are $n$ distinct cosets of $H$, then $n|H|$ counts each element of $G$ exactly once. Therefore
+By Theorem \ref{cosetpartition}, the cosets of $H$ partition $G$. And by Theorem \ref{cosetsize}, each coset of $H$ has size $|H|$. If there are $n$ distinct cosets of $H$, then the quantity $n|H|$ counts each element of $G$ exactly once. Therefore
 \begin{equation*}
     |G| = n|H|\mathrm{,}
 \end{equation*}
@@ -146,7 +146,7 @@ so the order of $H$ is a divisor of the order of $G$.
 \end{proof}
 
 \begin{example}
-Take the subset $\{0, 2, 4\}$ of $\zn[6]$. By computing every possible sum in this set, we see this is actualy a subgroup of $\zn[6]$. Note that Lagrange's Theorem holds, as $\left|\zn[6]\right| = 6$ and $|\{0, 2, 4\}| = 3$, and $3|6$. By the converse of the theorem, we also see that any subset of $\zn[6]$ with cardinality other than $1, 2, 3$, or $6$ can't be a subgroup of $\zn[6]$.
+Take the subset $\{0, 2, 4\}$ of $\zn[6]$. By computing every possible sum in this set, we see this is actualy a subgroup of $\zn[6]$. Note that Lagrange's Theorem holds, as $\left|\zn[6]\right| = 6$ and $|\{0, 2, 4\}| = 3$, and $3|6$. By the contrapositive of the theorem, we also see that any subset of $\zn[6]$ with cardinality other than $1, 2, 3$, or $6$ can't be a subgroup of $\zn[6]$.
 \end{example}
 
 \begin{example}
