@@ -95,7 +95,7 @@ is an isomorphism. It's clearly a bijection, and we only have to check that it's
         $0$ & $2$ & $2$   & $e$       & $\rho_2$  & $\rho_2$         & $\rho_2$   \\
         $1$ & $1$ & $2$   & $\rho_1$  & $\rho_1$  & $\rho_2$         & $\rho_2$   \\
         $1$ & $2$ & $0$   & $\rho_1$  & $\rho_2$  & $e$              & $e$        \\
-        $2$ & $2$ & $1$   & $\rho_2$  & $\rho_2$  & $\rho_1$         & $\rho_1$   \\
+        $2$ & $2$ & $1$   & $\rho_2$  & $\rho_2$  & $\rho_1$         & $\rho_1$
     \end{tabular}
 \end{center}
 
@@ -152,6 +152,7 @@ Suppose that $\phi$ is injective. Then if $\phi(a) = e'$, the fact than $\phi(e)
     \phi(a \inv b) &= e'.
 \end{align*}
 Therefore $a\inv b \in \ker\phi$, so $a\inv b = e$. Multiplying on the right by $b$, we see that $a = b$, so $\phi$ is injective.
+
 \end{proof}
 
 We \extra know that $\phi(G)$ is a subgroup of $G'$ for any homomorphism $\phi: G \to G'$. Since $\phi$ definitely maps $G$ \textit{onto} $\phi(G)$, this means that $G$ is actually isomorphic to $\phi(G)$ if and only if $\phi$ is injective, that is, if and only if $\ker\phi = \{e\}$. While not strictly useful for our purposes, this shows some of the power of kernels of homomorphisms. This theme will be expanded upon through the rest of this document.

@@ -69,7 +69,7 @@ Consider $D_3$ and its subgroup $H = \{e, \mu_1\}$. The left cosets of $H$ are a
 \begin{align*}
     eH      &= \{e, \mu_1\}      \\
     \rho_1H &= \{\rho_1, \mu_2\} \\
-    \rho_2H &= \{\rho_2, \mu_3\} \\
+    \rho_2H &= \{\rho_2, \mu_3\}
 \end{align*}
 We can also verify (using the Cayley table in Figure \ref{cayleyD3}) that these left cosets are unique. That is, $\mu_2H = \rho_1H$, and $\mu_3H = \rho_2H$. We will prove that this is true in general in Theorem \ref{cosets}.
 \end{example}
@@ -87,7 +87,6 @@ Let $H$ be a subgroup of $G$, and let $a, b \in G$. The following are equivalent
 \end{theorem}
 
 \begin{proof}
-
 We'll prove these implications in order. First, suppose $a \in bH$. So $a = bh_1$ for some $h \in H$. Let $ah \in aH$. Then $ah = (bh_1)h = b(h_1 h)$. Because $H$ is a subgroup, $h_1 h \in H$, so $b(h_1 h) \in bH$, meaning that $ah \in bH$, or $aH \subseteq bH$. Now let $bh \in bH$. Note that $b = a \inv{h_1}$. Therefore $bh = (a \inv{h_1})h = a (\inv{h_1}h)$. Again, because $H$ is a subgroup, $\inv{h_1} h \in H$, so $bh \in aH$, and $bH \subseteq aH$. Therefore $aH = bH$.
 
 Now suppose that $aH = bH$. If $ah_1 \in aH$, then there exists an $h_2 \in H$ such that $ah_1 = bh_2$. Multiplying on the left by $\inv{b}$ and on the right by $\inv{h_1}$, we see that $\inv{b}a = h_2 \inv{h_1}$. Because $H$ is a subgroup, we therefore have $\inv{b}a \in H$.

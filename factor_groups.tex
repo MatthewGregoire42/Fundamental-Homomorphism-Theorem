@@ -2,8 +2,6 @@
 
 At this point, all of the concepts we've defined start to come together. First, we need just a little more machinery to operate on cosets.
 
-% Revisit this theorem -- it needs to be clear.
-
 \begin{theorem}
 Let $H$ be a subgroup of $G$, and consider two left cosets $aH$ and $bH$ of $H$. Then the operation $(aH)(bH) = (ab)H$ is well-defined if and only if $H$ is a normal subgroup.
 \end{theorem}
@@ -15,7 +13,6 @@ Before proving this, let's think about what we need to show. Left coset multipli
 With this reformulation, we can now proceed to the proof.
 
 \begin{proof}
-
 Assume that the operation is well-defined. We want to show that $H$ is normal. Let $a \in G$. We'll show that $aH = Ha$.
 
 Let $x \in aH$, so $xH = aH$. Computing with our operation, which by assumption is well-defined, we have
@@ -108,4 +105,5 @@ Let $G$ be a group with a normal subgroup $N$, and let $\phi: G \to G/N$ be defi
 
 \begin{proof}
 Let $a, b \in G$. Because $N$ is normal, coset multiplication is well-defined. Therefore $\phi(ab) = abN = (aN)(bN) = \phi(a)\phi(b)$, so the homomorphism property holds.
+
 \end{proof}
