@@ -3,7 +3,7 @@
 Now we finally have built all the machinery we need to tackle this theorem. The statement is as follows.
 
 \begin{theorem}[The Fundamental Homomorphism Theorem]
-Let $\phi: G \to G'$ be a group homomorphism with kernel $K$. Then $\mu: G/K \to \phi(G)$ defined by $\mu(aK) = \phi(a)$ is an isomorphism. If $\gamma: G \to G/K$ is the canonical homomorphism given by $\gamma(a) = aK$, then $\phi(a) = \mu(\gamma(a))$ for all $a \in G$.
+Let $\phi: G \to G'$ be a group homomorphism with kernel $K$. Then $\mu: G/K \to \phi(G)$ defined by $\mu(aK) = \phi(a)$ is an isomorphism. If $\gamma: G \to G/K$ is the canonical homomorphism given by $\gamma(a) = aK$, then $\mu(a) = \mu(\gamma(a))$ for all $a \in G$, and $\mu$ is the unique isomorphism with this property.
 \end{theorem}
 
 \begin{proof}
@@ -22,7 +22,7 @@ so the homomorphism property is satisfied. Suppose that $\mu(aK) = \mu(bK).$ The
 \end{align*}
 Therefore $a\inv b \in \ker(\phi) = K$. By Theorem \ref{cosets}, this implies that $aK = bK$, so $\mu$ is injective. Now let $\phi(a) \in \phi(G)$. Clearly $\mu(aK) = \phi(a)$, so $\mu$ is also surjective. Therefore $\mu$ is indeed an isomorphism.
 
-To check final property, let $a \in G$. Then $\mu(\gamma(a)) = \mu(aK) = \phi(a)$, so the theorem is proven.
+To check final property, let $a \in G$. Then $\mu(\gamma(a)) = \mu(aK) = \phi(a)$, as desired. To demonstrate uniqueness, suppose $\mu'$ is another isomorphism between $G/K$ and $\phi(G)$ such that $\phi(a) = \mu'(\gamma(a))$ for all $a \in G$. Then we have $\mu(\gamma(a)) = \phi(a) = \mu'(\gamma(a))$ for all $a \in G$. Since every element of $G/K$ is of the form $\gamma(a)$ for some $a \in G$, we see that $\mu$ and $\mu'$ agree at every element of their domain, and are thus the same function. So the theorem is proven.
 
 \end{proof}
 
